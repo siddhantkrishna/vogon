@@ -363,3 +363,128 @@ a {
   }
 }
 /* END VOGON BRAND SYSTEM V1 */
+
+
+/* VOGON HEADER V1 */
+
+.vogon-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 60;
+  width: 100%;
+  background: transparent;
+  transition:
+    background 400ms var(--vogon-ease),
+    border-color 400ms var(--vogon-ease);
+  border-bottom: 1px solid transparent;
+}
+
+.vogon-header[data-scrolled="true"] {
+  background: rgba(5, 5, 5, 0.96);
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+.vogon-header-inner {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding-inline: clamp(24px, 4vw, 72px);
+  transition: min-height 400ms var(--vogon-ease);
+}
+
+.vogon-header[data-scrolled="true"] .vogon-header-inner {
+  min-height: 72px;
+}
+
+.vogon-header-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 132px;
+}
+
+.vogon-header-logo img,
+.vogon-header-logo svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vogon-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3vw, 48px);
+}
+
+.vogon-nav a {
+  position: relative;
+  color: #f5f5f2;
+  font-family: var(--vogon-font-technical);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 250ms ease;
+}
+
+.vogon-nav a:hover {
+  opacity: 0.65;
+}
+
+.vogon-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 350ms var(--vogon-ease);
+}
+
+.vogon-nav a:hover::after,
+.vogon-nav a[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.vogon-header a:focus-visible,
+.vogon-header button:focus-visible {
+  outline: 2px solid #f5f5f2;
+  outline-offset: 6px;
+}
+
+@media (max-width: 767px) {
+  .vogon-header-inner {
+    min-height: 72px;
+    padding-inline: 20px;
+  }
+
+  .vogon-header[data-scrolled="true"] .vogon-header-inner {
+    min-height: 64px;
+  }
+
+  .vogon-header-logo {
+    width: 112px;
+  }
+
+  .vogon-nav {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vogon-header,
+  .vogon-header-inner,
+  .vogon-nav a,
+  .vogon-nav a::after {
+    transition: none;
+  }
+}
+
+/* END VOGON HEADER V1 */
