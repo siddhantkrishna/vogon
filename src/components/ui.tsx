@@ -3,20 +3,21 @@ import { Link } from "react-router-dom";
 import { site } from "@/content/site";
 import { cn } from "@/utils/cn";
 
-/** Custom VOGON wordmark — split-apex V, horizon-slit O, geometric G. */
-export function Wordmark({ className, title = "VOGON" }: { className?: string; title?: string }) {
-  const o = "M22.83 12.09 A11 11 0 0 0 1.17 12.09 M1.17 15.91 A11 11 0 0 0 22.83 15.91";
+/** Official VOGON brand wordmark. */
+export function Wordmark({
+  className,
+  title = "VOGON",
+}: {
+  className?: string;
+  title?: string;
+}) {
   return (
-    <svg viewBox="-2 0 188 28" className={cn("h-auto", className)} role="img" aria-label={title} fill="none">
-      <title>{title}</title>
-      <g stroke="currentColor" strokeWidth="2.6" strokeLinejoin="miter" strokeLinecap="butt">
-        <path d="M0.5 2 L10.8 25 M13.2 25 L23.5 2" />
-        <path transform="translate(40 0)" d={o} />
-        <path transform="translate(80 0)" d="M20.43 6.93 A11 11 0 1 0 23 14 L13 14" />
-        <path transform="translate(120 0)" d={o} />
-        <path transform="translate(160 0)" d="M1.5 26 L1.5 2 L22.5 26 L22.5 2" />
-      </g>
-    </svg>
+    <img
+      src="/brand/vogon-wordmark.png"
+      alt={title}
+      className={cn("block h-auto object-contain", className)}
+      draggable={false}
+    />
   );
 }
 
