@@ -15,7 +15,7 @@ export function Wordmark({
     <img
       src="/brand/vogon-wordmark.png"
       alt={title}
-      className={cn("block h-auto object-contain", className)}
+      className={cn("block w-full h-auto object-contain", className)}
       draggable={false}
     />
   );
