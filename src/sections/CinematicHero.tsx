@@ -48,7 +48,7 @@ export function CinematicHero() {
             alt="Conceptual artwork: an unmarked autonomous aircraft silhouetted above Earth's atmospheric horizon"
             fetchPriority="high"
             decoding="async"
-            className="img-cover object-[72%_50%] md:object-center"
+            className="img-cover vogon-hero-image"
           />
         </div>
         {/* Atmospheric layer — moves at a different rate for depth */}
@@ -66,7 +66,7 @@ export function CinematicHero() {
         <div className="shell relative flex h-full flex-col justify-end pb-12 md:pb-16">
           <div data-hero-content className="grid-12 items-end gap-y-8">
             <div className="col-span-4 md:col-span-9 xl:col-span-8">
-              <h1 className="display-xl text-paper">
+              <h1 className="display-xl vogon-hero-title text-paper">
                 {["Engineering the next", "frontier of defence."].map((l) => (
                   <span key={l} className="block overflow-hidden pb-[0.06em] -mb-[0.06em]">
                     <span data-line-inner className="block will-change-transform">
@@ -84,7 +84,7 @@ export function CinematicHero() {
             </div>
             <div data-hero-cta className="col-span-4 md:col-span-4 md:col-start-9 md:justify-self-end">
               <Magnetic>
-                <Link to="/technologies" className="btn group min-w-[240px]">
+                <Link to="/technologies" className="btn group min-w-[240px] vogon-interactive">
                   <span>Explore VOGON</span>
                   <span aria-hidden className="arrow">
                     ↗

@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://vogon.in/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://vogon.in/</loc></url>
+  <url><loc>https://vogon.in/technologies</loc></url>
+  <url><loc>https://vogon.in/capabilities</loc></url>
+  <url><loc>https://vogon.in/research</loc></url>
+  <url><loc>https://vogon.in/company</loc></url>
+  <url><loc>https://vogon.in/careers</loc></url>
+  <url><loc>https://vogon.in/contact</loc></url>
+  <url><loc>https://vogon.in/privacy</loc></url>
+  <url><loc>https://vogon.in/terms</loc></url>
+  <url><loc>https://vogon.in/technologies/autonomous-systems</loc></url>
+  <url><loc>https://vogon.in/technologies/aerospace-technologies</loc></url>
+  <url><loc>https://vogon.in/technologies/artificial-intelligence</loc></url>
+  <url><loc>https://vogon.in/technologies/advanced-robotics</loc></url>
 </urlset>

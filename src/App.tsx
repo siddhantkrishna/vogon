@@ -1,5 +1,5 @@
 import { useEffect, type ReactNode } from "react";
-import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { ReducedMotionProvider, ScrollTrigger } from "@/lib/motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -67,9 +67,9 @@ function Shell() {
 export default function App() {
   return (
     <ReducedMotionProvider>
-      <HashRouter>
+      <BrowserRouter>
         <Shell />
-      </HashRouter>
+      </BrowserRouter>
     </ReducedMotionProvider>
   );
 }

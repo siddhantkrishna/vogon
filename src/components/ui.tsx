@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { site } from "@/content/site";
 import { cn } from "@/utils/cn";
 
-/** Official VOGON brand wordmark. */
+/** Official VOGON wordmark. */
 export function Wordmark({
   className,
   title = "VOGON",

@@ -7,7 +7,7 @@
  * (or rendered as clearly marked placeholders) until real data is supplied.
  */
 
-export const img = (name: string) => `images/${name}.jpg`;
+export const img = (name: string) => `/images/${name}.jpg`;
 
 export const site = {
   name: "VOGON",
