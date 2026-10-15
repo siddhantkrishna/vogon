@@ -1,3 +1,4 @@
+import AdminPage from "@/pages/AdminPage";
 import { useEffect, type ReactNode } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { ReducedMotionProvider, ScrollTrigger } from "@/lib/motion";
@@ -34,6 +35,8 @@ function PageTransition({ children }: { children: ReactNode }) {
 }
 
 function Shell() {
+  const { pathname } = useLocation();
+  if (pathname.startsWith("/admin")) return <AdminPage />;
   return (
     <>
       <a href="#main" className="skip-link" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>

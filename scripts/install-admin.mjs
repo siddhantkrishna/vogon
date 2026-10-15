@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+const file='src/App.tsx';
+let s=fs.readFileSync(file,'utf8');
+if (!s.includes('import AdminPage from')) s='import AdminPage from "@/pages/AdminPage";\n'+s;
+if (!s.includes('pathname.startsWith("/admin")')) s=s.replace('function Shell() {\n', 'function Shell() {\n  const { pathname } = useLocation();\n  if (pathname.startsWith("/admin")) return <AdminPage />;\n');
+fs.writeFileSync(file,s);
+const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));
+pkg.dependencies['@neondatabase/serverless']='^1.0.0';
+fs.writeFileSync('package.json',JSON.stringify(pkg,null,2)+'\n');
+const env='.env.example';let e=fs.existsSync(env)?fs.readFileSync(env,'utf8'):'';
+e+='\n# VOGON Admin (server only; never prefix VITE_)\nDATABASE_URL=\nADMIN_PASSWORD=\nADMIN_SESSION_SECRET=\n';
+fs.writeFileSync(env,e);
+const gi='.gitignore';let g=fs.existsSync(gi)?fs.readFileSync(gi,'utf8'):'';
+if(!g.includes('.env.local')) fs.appendFileSync(gi,'\n.env.local\n.env\n');
+console.log('Installed admin route, dependencies, and environment template.');

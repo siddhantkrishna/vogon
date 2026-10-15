@@ -1,3 +1,4 @@
+import { db } from './_db.js';
 /**
  * VOGON — form delivery endpoint (Vercel Serverless Function).
  *
@@ -102,37 +103,25 @@ export default async function handler(req, res) {
   const { errors, clean } = validate(schema, body);
   if (Object.keys(errors).length) return res.status(422).json({ ok: false, error: "Please correct the highlighted fields.", errors });
 
-  const { RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL } = process.env;
-  if (!RESEND_API_KEY || !CONTACT_TO_EMAIL || !CONTACT_FROM_EMAIL) {
-    console.error("[contact] Missing email configuration");
-    return res.status(503).json({ ok: false, error: "The submission service is not configured yet. Please try again later." });
-  }
-
-  const subject = body.kind === "careers" ? `Careers interest — ${clean.name}` : `${clean.inquiryType} — ${clean.name}`;
-  const rows = Object.entries(clean)
-    .map(([k, v]) => `<tr><td style="padding:6px 12px;color:#777">${escape(k)}</td><td style="padding:6px 12px;white-space:pre-wrap">${escape(v || "—")}</td></tr>`)
-    .join("");
-
   try {
-    const r = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        from: CONTACT_FROM_EMAIL,
-        to: [CONTACT_TO_EMAIL],
-        reply_to: clean.email,
-        subject: `[vogon.in] ${subject}`,
-        html: `<table style="font-family:system-ui,sans-serif;font-size:14px">${rows}</table>`,
-        text: Object.entries(clean).map(([k, v]) => `${k}: ${v}`).join("\n"),
-      }),
-    });
-    if (!r.ok) {
-      console.error("[contact] Resend error", r.status, await r.text());
-      return res.status(502).json({ ok: false, error: "We could not deliver your message right now. Please try again shortly." });
-    }
-    return res.status(200).json({ ok: true });
-  } catch (e) {
-    console.error("[contact] Delivery failure", e);
-    return res.status(502).json({ ok: false, error: "We could not deliver your message right now. Please try again shortly." });
+    const sql = db();
+    await sql`INSERT INTO vogon_submissions(kind,name,email,organization,inquiry_type,discipline,profile_url,message)
+      VALUES (${body.kind},${clean.name},${clean.email},${clean.organization || ''},${clean.inquiryType || ''},${clean.discipline || ''},${clean.profileUrl || ''},${clean.message})`;
+  } catch (err) {
+    console.error('[contact] Database persistence failed', err);
+    return res.status(503).json({ok:false,error:'Could not save your submission. Please retry.'});
   }
+  const { RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL } = process.env;
+  if (RESEND_API_KEY && CONTACT_TO_EMAIL && CONTACT_FROM_EMAIL) {
+    const subject = body.kind === 'careers' ? 'Career inquiry' : 'Contact inquiry';
+    const rows = Object.entries(clean).map(([k,v]) => `${k}: ${v}`).join('\n');
+    try {
+      const r = await fetch('https://api.resend.com/emails', {
+        method:'POST', headers:{Authorization:`Bearer ${RESEND_API_KEY}`,'Content-Type':'application/json'},
+        body:JSON.stringify({from:CONTACT_FROM_EMAIL,to:[CONTACT_TO_EMAIL],reply_to:clean.email,subject:`[VOGON] ${subject}: ${clean.name}`,text:rows})
+      });
+      if (!r.ok) console.error('[contact] Email notification failed',r.status);
+    } catch(err) { console.error('[contact] Email notification error',err); }
+  }
+  return res.status(200).json({ok:true});
 }
