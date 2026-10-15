@@ -10,3 +10,12 @@ dist/
 
 .env.local
 .env
+.vercel
+
+.env.local
+.env.vercel.local
+.env.*
+!.env.example
+node_modules/
+dist/
+.vercel/

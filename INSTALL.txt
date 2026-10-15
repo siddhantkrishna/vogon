@@ -1,0 +1,20 @@
+VOGON ADMIN PATCH — Installation
+
+1. Extract the ZIP into the root of your existing VOGON repository (folders api/, src/, scripts/ must merge).
+2. Run:
+   node scripts/install-admin.mjs
+   node scripts/patch-contact.mjs
+   npm install
+3. Add server-side secrets to .env.local (not Git):
+   DATABASE_URL=postgresql://...
+   ADMIN_PASSWORD=<strong unique password>
+   ADMIN_SESSION_SECRET=<64 random hex chars>
+   ALLOWED_ORIGIN=http://localhost:3000
+4. Run schema:
+   node --env-file=.env.local scripts/setup-db.mjs
+5. For API routes, run: npx vercel dev (not npm run dev)
+6. Open /admin. Deploy Vercel with DATABASE_URL, ADMIN_PASSWORD,
+   ADMIN_SESSION_SECRET and ALLOWED_ORIGIN=https://vogon.in set as environment variables.
+
+Notes: Do not commit .env.local. Public contact and careers forms persist to Neon.
+Incoming email notifications are optional and require existing Resend variables.
