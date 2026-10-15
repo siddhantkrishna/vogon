@@ -68,6 +68,14 @@ export function SiteFooter() {
           <p className="eyebrow">{site.domain.replace("https://", "")} — India</p>
         </div>
       </div>
-    </footer>
+    
+        <a
+          href="/admin"
+          aria-label="Open VOGON admin panel"
+          className="inline-flex items-center gap-2 border border-white/20 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.15em] text-white/60 transition-colors duration-300 hover:border-white/60 hover:text-white"
+        >
+          Admin <span aria-hidden="true">↗</span>
+        </a>
+</footer>
   );
 }
