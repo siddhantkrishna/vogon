@@ -45,7 +45,7 @@ export function SiteHeader() {
       >
         <div className="shell flex h-full items-center justify-between">
           <Link ref={logoRef} to="/" className="relative z-[70] block text-paper vogon-header-logo" aria-label="VOGON — home">
-            <Wordmark className="w-[112px] md:w-[132px]" />
+            <Wordmark className="!w-[112px] md:!w-[132px] !max-w-full !h-auto" />
           </Link>
 
           <nav aria-label="Primary" className="hidden lg:block">

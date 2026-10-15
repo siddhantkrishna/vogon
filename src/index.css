@@ -488,3 +488,30 @@ button, a {
 }
 
 /* END VOGON PRODUCTION REFINEMENTS */
+
+
+/* VOGON HEADER LOGO SIZE FIX */
+header .vogon-header-logo {
+  display: inline-flex !important;
+  width: 132px !important;
+  max-width: 132px !important;
+  height: auto !important;
+  flex: 0 0 132px !important;
+  overflow: hidden;
+}
+
+header .vogon-header-logo img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 767px) {
+  header .vogon-header-logo {
+    width: 112px !important;
+    max-width: 112px !important;
+    flex-basis: 112px !important;
+  }
+}
