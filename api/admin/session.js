@@ -15,7 +15,7 @@ export default async function handler(req, res) {
     await sql`DELETE FROM admin_login_attempts WHERE attempted_at < NOW() - INTERVAL '1 hour'`;
     const [count] = await sql`SELECT COUNT(*)::int AS n FROM admin_login_attempts WHERE ip = ${key} AND attempted_at > NOW() - INTERVAL '15 minutes'`;
     if (count.n >= 8) return res.status(429).json({error:'Too many attempts. Wait 15 minutes.'});
-    if (!checkPassword(password)) {
+    if (!checkPassword(password, req.body?.email)) {
       await sql`INSERT INTO admin_login_attempts (ip) VALUES (${key})`;
       return res.status(401).json({error:'Invalid credentials.'});
     }

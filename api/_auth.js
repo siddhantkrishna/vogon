@@ -7,7 +7,14 @@ const secret = () => process.env.ADMIN_SESSION_SECRET;
 function signature(payload) { return createHmac('sha256', secret()).update(payload).digest('base64url'); }
 function eq(a, b) { const x = Buffer.from(a || ''); const y = Buffer.from(b || ''); return x.length === y.length && timingSafeEqual(x, y); }
 export function configured() { return Boolean(process.env.ADMIN_PASSWORD && secret() && process.env.DATABASE_URL); }
-export function checkPassword(value) { return eq(value, process.env.ADMIN_PASSWORD); }
+export function checkPassword(value, email) {
+  const expectedEmail = process.env.ADMIN_EMAIL || 's@charvikon.com';
+  return (
+    typeof email === 'string' &&
+    email.trim().toLowerCase() === expectedEmail.toLowerCase() &&
+    eq(value, process.env.ADMIN_PASSWORD)
+  );
+}
 export function csrfSafe(req) {
   const target = process.env.ALLOWED_ORIGIN || 'https://vogon.in';
   const origin = req.headers.origin;
