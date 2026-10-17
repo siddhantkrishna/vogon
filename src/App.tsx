@@ -23,7 +23,20 @@ function PageTransition({ children }: { children: ReactNode }) {
     const id = window.setTimeout(() => ScrollTrigger.refresh(), 120);
     const onLoad = () => ScrollTrigger.refresh();
     window.addEventListener("load", onLoad);
+
+    let frame = 0;
+    const onImageReady = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    };
+
+    window.addEventListener("vogon:image-ready", onImageReady);
+
     return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("vogon:image-ready", onImageReady);
       window.clearTimeout(id);
       window.removeEventListener("load", onLoad);
     };

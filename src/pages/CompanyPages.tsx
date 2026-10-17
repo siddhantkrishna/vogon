@@ -1,3 +1,4 @@
+import { VogonIcon } from "@/components/VogonIcon";
 import { capabilities, img, milestones, roles, team } from "@/content/site";
 import { PageHero } from "@/components/PageHero";
 import { DrawRule, MaskedTextReveal, ParallaxMedia, Reveal, RevealImage } from "@/components/motion";
@@ -268,7 +269,7 @@ export function CareersPage() {
                     <a href={r.href} className="group flex flex-col gap-2 py-6 md:flex-row md:items-center md:justify-between">
                       <span className="text-2xl font-medium">{r.title}</span>
                       <span className="eyebrow">
-                        {r.team} — {r.location} — {r.type} <span className="arrow">↗</span>
+                        {r.team} — {r.location} — {r.type} <span className="arrow"><VogonIcon name="arrow-up-right" /></span>
                       </span>
                     </a>
                   </li>

@@ -1,3 +1,4 @@
+import { VogonIcon } from "@/components/VogonIcon";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Wordmark } from "./ui";
@@ -164,7 +165,7 @@ export function SiteHeader() {
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
-                    <span aria-hidden="true">↗</span>
+                    <span aria-hidden="true"><VogonIcon name="arrow-up-right" /></span>
                   </NavLink>
                 ))}
               </div>
@@ -185,7 +186,7 @@ export function SiteHeader() {
                   </span>
 
                   <span className="vogon-menu-item-arrow" aria-hidden="true">
-                    ↗
+                    <VogonIcon name="arrow-up-right" />
                   </span>
                 </NavLink>
               ))}
@@ -197,15 +198,15 @@ export function SiteHeader() {
               >
                 <span className="vogon-menu-item-number">06</span>
                 <span className="vogon-menu-item-title">Careers</span>
-                <span className="vogon-menu-item-arrow" aria-hidden="true">↗</span>
+                <span className="vogon-menu-item-arrow" aria-hidden="true"><VogonIcon name="arrow-up-right" /></span>
               </NavLink>
             </nav>
           </div>
 
           <div className="vogon-menu-bottom">
-            <a href="mailto:s@vogon.in">S@VOGON.IN ↗</a>
+            <a href="mailto:s@vogon.in">S@VOGON.IN <VogonIcon name="arrow-up-right" /></a>
             <Link to="/admin" onClick={() => setOpen(false)}>
-              ADMIN ACCESS ↗
+              ADMIN ACCESS <VogonIcon name="arrow-up-right" />
             </Link>
             <span>VOGON.IN — INDIA</span>
           </div>

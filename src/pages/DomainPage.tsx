@@ -1,3 +1,4 @@
+import { VogonIcon } from "@/components/VogonIcon";
 import { Link, useParams } from "react-router-dom";
 
 const domains = {
@@ -99,7 +100,7 @@ export default function DomainPage() {
         </div>
 
         <Link to={content.related}>
-          {content.relatedLabel} <span aria-hidden="true">↗</span>
+          {content.relatedLabel} <span aria-hidden="true"><VogonIcon name="arrow-up-right" /></span>
         </Link>
       </div>
     </article>

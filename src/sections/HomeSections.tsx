@@ -1,3 +1,4 @@
+import { VogonIcon } from "@/components/VogonIcon";
 import { Link } from "react-router-dom";
 import { img, projects, technologies, type Project, type Technology } from "@/content/site";
 import { DrawRule, Magnetic, MaskedTextReveal, ParallaxMedia, Reveal, RevealImage } from "@/components/motion";
@@ -53,7 +54,7 @@ export function TechnologyShowcase({ tech, layout }: { tech: Technology; layout:
             <div className="col-span-4 md:col-span-4 md:col-start-9">
               <p className="body text-paper/75">{tech.short}</p>
               <span className="label mt-6 inline-flex items-center gap-3">
-                Explore <span className="arrow arrow-x">→</span>
+                Explore <span className="arrow arrow-x"><VogonIcon name="arrow-right" /></span>
               </span>
             </div>
           </div>
@@ -82,7 +83,7 @@ export function TechnologyShowcase({ tech, layout }: { tech: Technology; layout:
             <h3 className="display-md mb-6">{tech.title}</h3>
             <p className="body mb-8 max-w-sm">{tech.short}</p>
             <span className="label inline-flex items-center gap-3 border-b border-line pb-2 transition-colors group-hover:border-paper">
-              Explore <span className="arrow arrow-x">→</span>
+              Explore <span className="arrow arrow-x"><VogonIcon name="arrow-right" /></span>
             </span>
           </div>
         </Reveal>
@@ -185,7 +186,7 @@ export function ProjectCard({ project, size = "md" }: { project: Project; size?:
           {size === "lg" && <p className="body mt-4 max-w-xl">{project.summary}</p>}
         </div>
         <span aria-hidden className="arrow mt-1 text-xl">
-          ↗
+          <VogonIcon name="arrow-up-right" />
         </span>
       </div>
       {project.placeholder && <ConceptTag className="mt-3 block">Sample project — conceptual placeholder</ConceptTag>}
@@ -283,7 +284,7 @@ export function CareersSection() {
             <Link to="/careers" className="btn group">
               <span>Explore careers</span>
               <span aria-hidden className="arrow">
-                ↗
+                <VogonIcon name="arrow-up-right" />
               </span>
             </Link>
           </Reveal>
@@ -307,7 +308,7 @@ export function FinalCta({
     <Link to="/contact" className="btn group w-full min-w-[260px] sm:w-auto">
       <span>Contact VOGON</span>
       <span aria-hidden className="arrow">
-        ↗
+        <VogonIcon name="arrow-up-right" />
       </span>
     </Link>
   );
@@ -323,7 +324,7 @@ export function FinalCta({
             <Link to="/technologies" className="btn btn-ghost group w-full min-w-[260px] sm:w-auto">
               <span>Explore technologies</span>
               <span aria-hidden className="arrow">
-                ↗
+                <VogonIcon name="arrow-up-right" />
               </span>
             </Link>
           </div>

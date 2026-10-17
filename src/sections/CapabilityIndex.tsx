@@ -1,3 +1,4 @@
+import { VogonIcon } from "@/components/VogonIcon";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { capabilities } from "@/content/site";
@@ -61,7 +62,7 @@ export function CapabilityIndex({ withHeader = true }: { withHeader?: boolean })
                         isActive ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0",
                       )}
                     >
-                      →
+                      <VogonIcon name="arrow-right" />
                     </span>
                   </Link>
 

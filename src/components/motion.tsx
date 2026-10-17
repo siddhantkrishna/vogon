@@ -139,7 +139,7 @@ export function RevealImage({
       const from = direction === "up" ? "inset(100% 0% 0% 0%)" : "inset(0% 0% 100% 0%)";
       const tl = gsap.timeline({ scrollTrigger: { trigger: ref.current, start: "top 85%", once: true } });
       tl.fromTo(ref.current, { clipPath: from }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.1, ease: "expo.inOut" });
-      // Scale the wrapper (not the <img>) so CSS hover zoom on the image keeps working
+      // Scale the wrapper (not the <SiteImage>) so CSS hover zoom on the image keeps working
       tl.fromTo(ref.current!.querySelector(".media-zoom"), { scale: 1.18 }, { scale: 1, duration: 1.6, ease: "expo.out", clearProps: "transform" }, 0.1);
     }, ref);
     return () => ctx.revert();

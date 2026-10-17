@@ -1,3 +1,4 @@
+import { VogonIcon } from "@/components/VogonIcon";
 import { useRef, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { site } from "@/content/site";
@@ -131,7 +132,7 @@ export function InquiryForm({
         <p className="display-md mb-8">Thank you.</p>
         <p className="body-lg max-w-lg">{status.message}</p>
         <button type="button" className="u-link label mt-10" onClick={() => setStatus({ state: "idle" })}>
-          Send another <span className="arrow arrow-x">→</span>
+          Send another <span className="arrow arrow-x"><VogonIcon name="arrow-right" /></span>
         </button>
       </div>
     );
@@ -236,7 +237,7 @@ export function InquiryForm({
         <button type="submit" disabled={status.state === "submitting"} className="btn group min-w-[240px] disabled:opacity-50">
           <span>{status.state === "submitting" ? "Sending…" : submitLabel}</span>
           <span aria-hidden className="arrow arrow-x">
-            →
+            <VogonIcon name="arrow-right" />
           </span>
         </button>
       </div>

@@ -1,3 +1,4 @@
+import { VogonIcon } from "@/components/VogonIcon";
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { site } from "@/content/site";
@@ -40,7 +41,7 @@ export function ContactPage() {
               <div>
                 <p className="eyebrow mb-2">Careers</p>
                 <Link to="/careers" className="u-link text-paper">
-                  Use the careers form <span className="arrow arrow-x">→</span>
+                  Use the careers form <span className="arrow arrow-x"><VogonIcon name="arrow-right" /></span>
                 </Link>
               </div>
             </div>

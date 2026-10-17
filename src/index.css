@@ -1007,3 +1007,41 @@ header .vogon-header-logo img {
     transition: none;
   }
 }
+
+
+/* VOGON ICON AND LOADING REFINEMENTS */
+
+.vogon-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: -0.18em;
+  width: 1.1em;
+  height: 1.1em;
+  stroke: currentColor;
+}
+
+.arrow .vogon-icon {
+  width: 17px;
+  height: 17px;
+  margin-left: 0;
+}
+
+a > .vogon-icon,
+button > .vogon-icon {
+  margin-left: 0.4em;
+}
+
+img {
+  font-style: normal;
+}
+
+img[loading="lazy"] {
+  content-visibility: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vogon-icon {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,3 +1,4 @@
+import { VogonIcon } from "@/components/VogonIcon";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { gsap, useIsoLayoutEffect, useReducedMotion } from "@/lib/motion";
@@ -45,6 +46,7 @@ export function CinematicHero() {
           <img
             data-hero-img
             src={img("hero")}
+            loading="eager"
             alt="Conceptual artwork: an unmarked autonomous aircraft silhouetted above Earth's atmospheric horizon"
             fetchPriority="high"
             decoding="async"
@@ -87,7 +89,7 @@ export function CinematicHero() {
                 <Link to="/technologies" className="btn group min-w-[240px] vogon-interactive">
                   <span>Explore VOGON</span>
                   <span aria-hidden className="arrow">
-                    ↗
+                    <VogonIcon name="arrow-up-right" />
                   </span>
                 </Link>
               </Magnetic>

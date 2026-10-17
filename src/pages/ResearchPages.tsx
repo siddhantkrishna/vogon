@@ -1,3 +1,4 @@
+import { VogonIcon } from "@/components/VogonIcon";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { projects, technologies } from "@/content/site";
@@ -171,7 +172,7 @@ export function ResearchDetailPage() {
           <p className="eyebrow mb-4">Next project</p>
           <MaskedTextReveal as="p" lines={[next.name]} className="display-lg" />
           <span aria-hidden className="arrow arrow-x label mt-6">
-            View →
+            View <VogonIcon name="arrow-right" />
           </span>
         </div>
       </Link>

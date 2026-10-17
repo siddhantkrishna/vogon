@@ -1,3 +1,4 @@
+import { VogonIcon } from "@/components/VogonIcon";
 import { Link, useParams } from "react-router-dom";
 import { projects, technologies } from "@/content/site";
 import { PageHero } from "@/components/PageHero";
@@ -39,7 +40,7 @@ export function TechnologiesPage() {
                 <RevealImage src={t.image} alt={t.imageAlt} className="aspect-[16/10]" />
               </div>
               <span aria-hidden className="arrow col-span-4 hidden justify-self-end text-2xl md:col-span-1 md:block">
-                ↗
+                <VogonIcon name="arrow-up-right" />
               </span>
             </Link>
           ))}
@@ -189,7 +190,7 @@ export function TechnologyDetailPage() {
           <p className="display-lg flex items-end justify-between gap-6">
             <span>{next.title}</span>
             <span aria-hidden className="arrow arrow-x text-[0.6em]">
-              →
+              <VogonIcon name="arrow-right" />
             </span>
           </p>
         </div>

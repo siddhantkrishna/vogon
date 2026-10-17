@@ -1,3 +1,4 @@
+import { VogonIcon } from "@/components/VogonIcon";
 import { useEffect, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { site } from "@/content/site";
@@ -48,7 +49,7 @@ export function AnimatedLink({
       <span>{children}</span>
       {arrow && (
         <span aria-hidden className={cn("arrow", arrow === "→" && "arrow-x")}>
-          {arrow}
+          <VogonIcon name={arrow === "→" ? "arrow-right" : "arrow-up-right"} />
         </span>
       )}
     </Link>
