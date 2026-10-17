@@ -1,3 +1,4 @@
+import DomainPage from "@/pages/DomainPage";
 import AdminPage from "@/pages/AdminPage";
 import { useEffect, type ReactNode } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
@@ -48,6 +49,7 @@ function Shell() {
         <PageTransition>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/domains/:domain" element={<DomainPage />} />
             <Route path="/technologies" element={<TechnologiesPage />} />
             <Route path="/technologies/:slug" element={<TechnologyDetailPage />} />
             <Route path="/capabilities" element={<CapabilitiesPage />} />

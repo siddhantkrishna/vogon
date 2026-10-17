@@ -1,175 +1,216 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { nav } from "@/content/site";
-import { gsap, useIsoLayoutEffect, useReducedMotion } from "@/lib/motion";
 import { Wordmark } from "./ui";
-import { cn } from "@/utils/cn";
+
+const primaryLinks = [
+  { label: "Space", to: "/domains/space" },
+  { label: "Air", to: "/domains/air" },
+  { label: "Land", to: "/domains/land" },
+  { label: "Sea", to: "/domains/sea" },
+  { label: "Software", to: "/domains/software" },
+];
+
+const menuLinks = [
+  { label: "Technologies", to: "/technologies" },
+  { label: "Capabilities", to: "/capabilities" },
+  { label: "Research", to: "/research" },
+  { label: "Company", to: "/company" },
+  { label: "Contact", to: "/contact" },
+];
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
-  const logoRef = useRef<HTMLAnchorElement>(null);
-  const reduced = useReducedMotion();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    setOpen(false);
+  }, [pathname]);
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    if (!open) return;
 
-  // Subtle logo reveal on first load
-  useIsoLayoutEffect(() => {
-    if (reduced || !logoRef.current) return;
-    const t = gsap.fromTo(
-      logoRef.current,
-      { clipPath: "inset(0 100% 0 0)", opacity: 0 },
-      { clipPath: "inset(0 0% 0 0)", opacity: 1, duration: 1.3, delay: 0.35, ease: "expo.inOut" },
-    );
-    return () => {
-      t.kill();
-      gsap.set(logoRef.current, { clearProps: "all" });
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const panel = panelRef.current;
+    panel?.querySelector<HTMLAnchorElement>("a")?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+        return;
+      }
+
+      if (event.key !== "Tab" || !panel) return;
+
+      const links = Array.from(
+        panel.querySelectorAll<HTMLAnchorElement>("a[href]")
+      );
+
+      if (!links.length) return;
+
+      const first = links[0];
+      const last = links[links.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
-  }, []);
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,height] duration-500 ease-[var(--ease-expo)]",
-          scrolled || open ? "border-b border-line bg-ink/95 h-16" : "border-b border-transparent bg-transparent h-[76px] md:h-[88px]",
-        )}
-      >
-        <div className="shell flex h-full items-center justify-between">
-          <Link ref={logoRef} to="/" className="relative z-[70] block text-paper vogon-header-logo" aria-label="VOGON — home">
-            <Wordmark className="!w-[112px] md:!w-[132px] !max-w-full !h-auto" />
+      <header className="vogon-main-header">
+        <div className="vogon-main-header-inner">
+          <Link
+            to="/"
+            className="vogon-brand"
+            aria-label="VOGON — Home"
+            onClick={() => setOpen(false)}
+          >
+            <Wordmark className="w-full" />
           </Link>
 
-          <nav aria-label="Primary" className="hidden lg:block">
-            <ul className="flex items-center gap-11">
-              {nav.map((item) => (
-                <li key={item.to}>
-                  <NavLink
-                    to={item.to}
-                    className={({ isActive }) =>
-                      cn("u-link label transition-colors duration-200", isActive ? "text-paper" : "text-paper/70 hover:text-paper")
-                    }
-                  >
-                    {item.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
+          <nav className="vogon-primary-nav" aria-label="Primary navigation">
+            {primaryLinks.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  `vogon-navigation-link ${isActive ? "is-active" : ""}`
+                }
+              >
+                {link.label}
+              </NavLink>
+            ))}
           </nav>
 
-          <div className="flex items-center gap-6">
-            <NavLink to="/contact" className="u-link label hidden text-paper lg:inline-flex">
-              <span>Contact</span>
-              <span aria-hidden className="arrow arrow-x">
-                →
-              </span>
-            </NavLink>
-            <button
-              type="button"
-              className="relative z-[70] flex h-11 w-11 items-center justify-center lg:hidden"
-              aria-expanded={open}
-              aria-controls="mobile-nav"
-              aria-label={open ? "Close menu" : "Open menu"}
-              onClick={() => setOpen((v) => !v)}
+          <div className="vogon-header-actions">
+            <NavLink
+              to="/careers"
+              className="vogon-careers-link"
+              onClick={() => setOpen(false)}
             >
-              <span aria-hidden className="relative block h-3 w-7">
-                <span
-                  className={cn(
-                    "absolute left-0 h-px w-full bg-paper transition-transform duration-300",
-                    open ? "top-1.5 rotate-45" : "top-0",
-                  )}
-                />
-                <span
-                  className={cn(
-                    "absolute left-0 h-px w-full bg-paper transition-transform duration-300",
-                    open ? "top-1.5 -rotate-45" : "top-3",
-                  )}
-                />
+              Careers
+            </NavLink>
+
+            <button
+              ref={toggleRef}
+              type="button"
+              className="vogon-menu-toggle"
+              aria-label={open ? "Close menu" : "Open more menu"}
+              aria-expanded={open}
+              aria-controls="vogon-expanded-menu"
+              onClick={() => setOpen((value) => !value)}
+            >
+              <span className="vogon-menu-toggle-label">
+                {open ? "Close" : "More"}
+              </span>
+
+              <span className="vogon-menu-symbol" aria-hidden="true">
+                <span className="vogon-menu-line vogon-menu-line-one" />
+                <span className="vogon-menu-line vogon-menu-line-two" />
               </span>
             </button>
           </div>
         </div>
       </header>
-      <MobileNavigation open={open} onClose={() => setOpen(false)} />
-    </>
-  );
-}
 
-function MobileNavigation({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const ref = useRef<HTMLDivElement>(null);
+      <div
+        ref={panelRef}
+        id="vogon-expanded-menu"
+        className="vogon-menu-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-label="VOGON navigation"
+        hidden={!open}
+      >
+        <div className="vogon-menu-content">
+          <div className="vogon-menu-heading">
+            <span>VOGON / NAVIGATION</span>
+            <span>ENGINEERED IN INDIA</span>
+          </div>
 
-  useEffect(() => {
-    if (!open) return;
-    document.body.style.overflow = "hidden";
-    const first = ref.current?.querySelector<HTMLElement>("a");
-    first?.focus();
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "Tab" && ref.current) {
-        const items = ref.current.querySelectorAll<HTMLElement>("a");
-        const firstEl = items[0];
-        const lastEl = items[items.length - 1];
-        if (e.shiftKey && document.activeElement === firstEl) {
-          e.preventDefault();
-          lastEl.focus();
-        } else if (!e.shiftKey && document.activeElement === lastEl) {
-          e.preventDefault();
-          firstEl.focus();
-        }
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [open, onClose]);
+          <div className="vogon-menu-layout">
+            <div className="vogon-menu-side">
+              <span>EXPLORE VOGON</span>
+              <p>
+                Engineering the next
+                <br />
+                frontier of defence.
+              </p>
+            </div>
 
-  const links = [...nav, { label: "Research", to: "/research" }, { label: "Contact", to: "/contact" }];
+            <nav aria-label="Expanded navigation">
+              <div className="vogon-mobile-domains">
+                {primaryLinks.map((link) => (
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                    <span aria-hidden="true">↗</span>
+                  </NavLink>
+                ))}
+              </div>
 
-  return (
-    <div
-      id="mobile-nav"
-      ref={ref}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Site navigation"
-      hidden={!open}
-      className="fixed inset-0 z-40 bg-ink lg:hidden"
-    >
-      <nav className="shell flex h-full flex-col justify-between pb-10 pt-28">
-        <ul className="border-t border-line">
-          {links.map((l, i) => (
-            <li
-              key={l.to}
-              className="border-b border-line"
-              style={{ animation: open ? `page-in 600ms var(--ease-expo) ${80 + i * 50}ms both` : undefined }}
-            >
+              {menuLinks.map((link, index) => (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  className="vogon-menu-item"
+                  onClick={() => setOpen(false)}
+                >
+                  <span className="vogon-menu-item-number">
+                    0{index + 1}
+                  </span>
+
+                  <span className="vogon-menu-item-title">
+                    {link.label}
+                  </span>
+
+                  <span className="vogon-menu-item-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </NavLink>
+              ))}
+
               <NavLink
-                to={l.to}
-                className={({ isActive }) =>
-                  cn(
-                    "flex items-baseline justify-between py-5 text-[clamp(1.75rem,8vw,2.75rem)] font-medium uppercase tracking-[-0.03em]",
-                    isActive ? "text-paper" : "text-paper/75",
-                  )
-                }
+                to="/careers"
+                className="vogon-menu-item vogon-mobile-careers"
+                onClick={() => setOpen(false)}
               >
-                <span>{l.label}</span>
-                <span className="eyebrow">0{i + 1}</span>
+                <span className="vogon-menu-item-number">06</span>
+                <span className="vogon-menu-item-title">Careers</span>
+                <span className="vogon-menu-item-arrow" aria-hidden="true">↗</span>
               </NavLink>
-            </li>
-          ))}
-        </ul>
-        <p className="eyebrow">Engineered in India</p>
-      </nav>
-    </div>
+            </nav>
+          </div>
+
+          <div className="vogon-menu-bottom">
+            <a href="mailto:s@vogon.in">S@VOGON.IN ↗</a>
+            <Link to="/admin" onClick={() => setOpen(false)}>
+              ADMIN ACCESS ↗
+            </Link>
+            <span>VOGON.IN — INDIA</span>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
