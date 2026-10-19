@@ -1,17 +1,8 @@
 import { VogonIcon } from "@/components/VogonIcon";
 import { Link, useParams } from "react-router-dom";
+import SpaceComingSoon from "./SpaceComingSoon";
 
 const domains = {
-  space: {
-    index: "01",
-    title: "Space",
-    headline: "THE NEXT FRONTIER.",
-    summary:
-      "Exploring advanced engineering principles and intelligent systems for the challenges of aerospace and future space technologies.",
-    image: "/images/horizon.jpg",
-    related: "/technologies/aerospace-technologies",
-    relatedLabel: "Explore aerospace technologies",
-  },
   air: {
     index: "02",
     title: "Air",
@@ -56,6 +47,9 @@ const domains = {
 
 export default function DomainPage() {
   const { domain } = useParams();
+
+  if (domain === "space") return <SpaceComingSoon />;
+
   const content = domains[domain as keyof typeof domains];
 
   if (!content) {
