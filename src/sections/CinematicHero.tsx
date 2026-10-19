@@ -1,114 +1,137 @@
-import { VogonIcon } from "@/components/VogonIcon";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { gsap, useIsoLayoutEffect, useReducedMotion } from "@/lib/motion";
 import { img } from "@/content/site";
-import { ConceptTag } from "@/components/ui";
-import { Magnetic } from "@/components/motion";
-import { cn } from "@/utils/cn";
 
 export function CinematicHero() {
-  const wrap = useRef<HTMLElement>(null);
+  const section = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
 
   useIsoLayoutEffect(() => {
-    if (reduced || !wrap.current) return;
+    if (!section.current || reduced) return;
+
     const ctx = gsap.context(() => {
-      const q = gsap.utils.selector(wrap.current);
+      const q = gsap.utils.selector(section.current);
 
-      /* --- Load choreography: image → headline lines → copy → CTA --- */
-      const intro = gsap.timeline({ defaults: { ease: "expo.out" } });
-      intro
-        .fromTo(q("[data-hero-img]"), { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 2.8, ease: "power2.out" })
-        .fromTo(q("[data-line-inner]"), { yPercent: 112 }, { yPercent: 0, duration: 1.15, stagger: 0.12 }, 0.55)
-        .fromTo(q("[data-hero-copy]"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 1 }, 1.15)
-        .fromTo(q("[data-hero-cta]"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.9 }, 1.45)
-        .fromTo(q("[data-hero-meta]"), { opacity: 0 }, { opacity: 1, duration: 1 }, 1.6);
-
-      /* --- Scroll choreography while pinned --- */
-      const tl = gsap.timeline({
-        scrollTrigger: { trigger: wrap.current, start: "top top", end: "bottom bottom", scrub: 0.6 },
+      const intro = gsap.timeline({
+        defaults: { ease: "power3.out" }
       });
-      tl.to(q("[data-hero-bg]"), { scale: 1.12, yPercent: 4, ease: "none" }, 0)
-        .to(q("[data-hero-atmo]"), { yPercent: -18, ease: "none" }, 0)
-        .to(q("[data-hero-content]"), { y: -90, opacity: 0, ease: "power1.in" }, 0)
-        .to(q("[data-hero-meta]"), { opacity: 0, ease: "none" }, 0)
-        .to(q("[data-hero-dark]"), { opacity: 0.75, ease: "none" }, 0);
-    }, wrap);
+
+      intro
+        .fromTo(q("[data-vogon-video]"),
+          { scale: 1.08, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 2.4 }
+        )
+        .fromTo(q("[data-vogon-title]"),
+          { y: 80, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1.3 },
+          0.45
+        )
+        .fromTo(q("[data-vogon-info]"),
+          { y: 25, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.9 },
+          1
+        );
+
+      gsap.to(q("[data-vogon-video]"), {
+        scale: 1.12,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      gsap.to(q("[data-vogon-title]"), {
+        y: -90,
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section.current,
+          start: "top top",
+          end: "80% top",
+          scrub: true
+        }
+      });
+    }, section);
+
     return () => ctx.revert();
   }, [reduced]);
 
   return (
-    <section ref={wrap} aria-label="Introduction" className={cn("relative", reduced ? "h-svh" : "h-[150svh] md:h-[175svh]")}>
-      <div className="sticky top-0 h-svh min-h-[560px] overflow-hidden bg-ink grain">
-        {/* Background layer (scroll scale) */}
-        <div data-hero-bg className="absolute inset-0 will-change-transform">
-          <img
-            data-hero-img
-            src={img("hero")}
-            loading="eager"
-            alt="Conceptual artwork: an unmarked autonomous aircraft silhouetted above Earth's atmospheric horizon"
-            fetchPriority="high"
-            decoding="async"
-            className="img-cover vogon-hero-image"
-          />
-        </div>
-        {/* Atmospheric layer — moves at a different rate for depth */}
-        <div
-          data-hero-atmo
-          aria-hidden
-          className="absolute inset-x-0 bottom-[-20%] h-[70%] bg-[radial-gradient(60%_50%_at_70%_40%,rgba(232,98,44,0.08),transparent_70%)]"
+    <section
+      ref={section}
+      className="vogon-film-hero"
+      aria-label="VOGON introduction"
+    >
+      <div data-vogon-video className="vogon-film-media">
+        <video
+          className="vogon-film-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={img("hero")}
+          aria-hidden="true"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+
+        <img
+          src={img("hero")}
+          alt=""
+          className="vogon-film-poster"
+          aria-hidden="true"
         />
-        {/* Legibility gradients */}
-        <div aria-hidden className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/70 to-transparent" />
-        <div aria-hidden className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-black via-black/60 to-transparent" />
-        <div data-hero-dark aria-hidden className="absolute inset-0 bg-ink opacity-0" />
+      </div>
 
-        {/* Content */}
-        <div className="shell relative flex h-full flex-col justify-end pb-12 md:pb-16">
-          <div data-hero-content className="grid-12 items-end gap-y-8">
-            <div className="col-span-4 md:col-span-9 xl:col-span-8">
-              <h1 className="display-xl vogon-hero-title text-paper">
-                {["Engineering the next", "frontier of defence."].map((l) => (
-                  <span key={l} className="block overflow-hidden pb-[0.06em] -mb-[0.06em]">
-                    <span data-line-inner className="block will-change-transform">
-                      {l}
-                    </span>
-                  </span>
-                ))}
-              </h1>
-            </div>
-            <div className="col-span-4 flex flex-col gap-8 md:col-span-5 md:col-start-1 lg:col-span-4 lg:col-start-1">
-              <p data-hero-copy className="body-lg max-w-md text-paper/80">
-                An independent Indian technology company advancing intelligent systems, autonomous platforms, and next-generation
-                engineering.
-              </p>
-            </div>
-            <div data-hero-cta className="col-span-4 md:col-span-4 md:col-start-9 md:justify-self-end">
-              <Magnetic>
-                <Link to="/technologies" className="btn group min-w-[240px] vogon-interactive">
-                  <span>Explore VOGON</span>
-                  <span aria-hidden className="arrow">
-                    <VogonIcon name="arrow-up-right" />
-                  </span>
-                </Link>
-              </Magnetic>
-            </div>
+      <div className="vogon-film-shade" aria-hidden="true" />
+
+      <div className="vogon-film-main">
+        <div data-vogon-title className="vogon-film-headline">
+          <p className="vogon-film-eyebrow">
+            VOGON / DEFENCE & AEROSPACE
+          </p>
+
+          <h1>
+            ENGINEERING
+            <span>THE FUTURE</span>
+            OF DEFENCE.
+          </h1>
+        </div>
+
+        <div data-vogon-info className="vogon-film-bottom">
+          <div className="vogon-film-statement">
+            <span>INTELLIGENCE</span>
+            <span>AUTONOMY</span>
+            <span>ENGINEERING</span>
           </div>
 
-          <div data-hero-meta className="mt-10 hidden items-center justify-between border-t border-white/10 pt-5 md:flex">
-            <span className="eyebrow">Autonomous systems / Aerospace / Intelligence / Robotics</span>
-            <ConceptTag>Conceptual artwork — not a VOGON product</ConceptTag>
-            <span className="eyebrow flex items-center gap-3">
-              Scroll
-              <span aria-hidden className="relative block h-6 w-px overflow-hidden bg-white/15">
-                <span className="absolute inset-x-0 top-0 h-2 animate-[scrollcue_1.8s_ease-in-out_infinite] bg-paper" />
-              </span>
-            </span>
+          <div className="vogon-film-center-mark">
+            V / 001
           </div>
+
+          <Link to="/technologies" className="vogon-film-link">
+            EXPLORE TECHNOLOGIES
+            <svg
+              viewBox="0 0 24 24"
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              <path d="M4 12h16M13 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
-      <style>{`@keyframes scrollcue{0%{transform:translateY(-100%)}100%{transform:translateY(300%)}}`}</style>
+
+      <div className="vogon-film-bottom-rule" aria-hidden="true" />
     </section>
   );
 }
