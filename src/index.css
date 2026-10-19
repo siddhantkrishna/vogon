@@ -1555,3 +1555,39 @@ img[loading="lazy"] {
 }
 
 /* END VOGON EDITORIAL FOOTER */
+
+
+/* VOGON HERO VIDEO LAYERING FIX */
+
+.vogon-film-media {
+  z-index: 0 !important;
+}
+
+.vogon-film-poster {
+  z-index: 0 !important;
+}
+
+.vogon-film-video {
+  z-index: 1 !important;
+  transition: opacity 700ms ease;
+}
+
+.vogon-film-shade {
+  z-index: 2 !important;
+}
+
+.vogon-film-main {
+  position: relative;
+  z-index: 3 !important;
+}
+
+.vogon-film-bottom-rule {
+  z-index: 4 !important;
+}
+
+.vogon-film-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+

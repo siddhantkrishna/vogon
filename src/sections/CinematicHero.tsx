@@ -1,11 +1,47 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { gsap, useIsoLayoutEffect, useReducedMotion } from "@/lib/motion";
 import { img } from "@/content/site";
 
 export function CinematicHero() {
   const section = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
   const reduced = useReducedMotion();
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const play = () => {
+      video.play().catch(() => {
+        setVideoReady(false);
+      });
+    };
+
+    const onReady = () => {
+      setVideoReady(true);
+      play();
+    };
+
+    video.addEventListener("loadeddata", onReady);
+    video.addEventListener("canplay", onReady);
+
+    if (video.readyState >= 2) onReady();
+    else video.load();
+
+    document.addEventListener("visibilitychange", play);
+
+    return () => {
+      video.removeEventListener("loadeddata", onReady);
+      video.removeEventListener("canplay", onReady);
+      document.removeEventListener("visibilitychange", play);
+    };
+  }, []);
 
   useIsoLayoutEffect(() => {
     if (!section.current || reduced) return;
@@ -68,7 +104,9 @@ export function CinematicHero() {
     >
       <div data-vogon-video className="vogon-film-media">
         <video
+          ref={videoRef}
           className="vogon-film-video"
+          style={{ opacity: videoReady ? 1 : 0 }}
           autoPlay
           muted
           loop
