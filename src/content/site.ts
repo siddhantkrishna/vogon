@@ -39,14 +39,23 @@ export const nav = [
 export const vortex = {
   index: "001",
   name: "VORTEX",
-  designation: "Total Perspective System",
-  category: "Synthetic intelligence-fusion research platform",
+  designation: "Industrial Operating System by VOGON",
+  category: "Industrial Operating System",
   path: "/vortex",
   loginUrl: "https://vortex-beryl-psi.vercel.app/login",
   summary:
-    "A private research laboratory for bringing synthetic signals, spatial context and evidence into one coherent perspective.",
+    "VOGON’s vision for connecting production, machinery, inventory, workforce, finance, energy and industrial intelligence in one operating environment.",
   overview:
-    "VORTEX brings fictional scenarios into a shared simulation workspace. Explore synthetic maps and telemetry, trace incidents to their source evidence, and replay events to understand how the picture comes together.",
+    "The industrial ERP features are under development. Available today is a private simulation laboratory for synthetic scenarios, evidence-linked incidents, deterministic replay and research exports. Industrial ERP modules are not yet available.",
+  vision: [
+    { index: "01", title: "Production", text: "Planned workflows for production planning, work orders and visibility into progress on the factory floor." },
+    { index: "02", title: "Machinery", text: "Planned equipment records, maintenance workflows and insight into machine availability." },
+    { index: "03", title: "Inventory", text: "Planned visibility into materials, stock movements and the flow of inventory through production." },
+    { index: "04", title: "Workforce", text: "Planned coordination of shifts, skills and workforce allocation across industrial operations." },
+    { index: "05", title: "Finance", text: "Planned connections between operational activity, costs and financial visibility." },
+    { index: "06", title: "Energy", text: "Planned visibility into energy consumption and its relationship to industrial performance." },
+    { index: "07", title: "Industrial intelligence", text: "Planned analysis across operating data to help teams understand patterns and make informed decisions." },
+  ],
   capabilities: [
     {
       index: "01",

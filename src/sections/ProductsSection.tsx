@@ -7,11 +7,11 @@ import { vortex } from "@/content/site";
 
 export function VortexProjectCard() {
   return (
-    <Link to={vortex.path} className="vortex-project-card group" aria-label="Explore VORTEX — Project 001">
+    <Link to={vortex.path} className="vortex-project-card group" aria-label="Explore VORTEX — Industrial Operating System by VOGON, Project 001">
       <div className="vortex-project-art">
         <div className="vortex-project-art-meta eyebrow">
           <span>VOGON / PROJECT {vortex.index}</span>
-          <span>Synthetic / Simulation only</span>
+          <span>Industrial ERP / Under development</span>
         </div>
         <VortexField />
         <span className="vortex-project-word" aria-hidden="true">VORTEX</span>
@@ -19,11 +19,12 @@ export function VortexProjectCard() {
         <span className="vortex-project-art-note eyebrow">Abstract fusion study</span>
       </div>
       <div className="vortex-project-details">
-        <p className="eyebrow">Project {vortex.index} <span className="vortex-status">Private research MVP</span></p>
+        <p className="eyebrow">Project {vortex.index} <span className="vortex-status">In development / Private access</span></p>
         <div className="vortex-project-description">
           <div>
             <h3 className="display-md">{vortex.name}</h3>
-            <p className="body mt-4 max-w-xl">{vortex.category}. {vortex.summary}</p>
+            <p className="body mt-4 max-w-xl">{vortex.summary}</p>
+            <p className="body mt-3 max-w-xl text-paper/80">Industrial ERP features are under development. Available today: a private synthetic simulation laboratory.</p>
           </div>
           <span className="label flex shrink-0 items-center gap-5">Explore project <span className="arrow arrow-x" aria-hidden="true"><VogonIcon name="arrow-right" /></span></span>
         </div>

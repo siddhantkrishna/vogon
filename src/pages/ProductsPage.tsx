@@ -6,7 +6,7 @@ import { VortexProjectCard } from "@/sections/ProductsSection";
 export default function ProductsPage() {
   useSeo({
     title: "Products & Projects",
-    description: "Explore VOGON products and projects. Project 001: VORTEX, a private synthetic intelligence-fusion research platform. Simulation only.",
+    description: "Project 001: VORTEX — Industrial Operating System by VOGON. Industrial ERP features are under development; the current application is a private simulation laboratory.",
     path: "/products",
   });
   return (

@@ -123,6 +123,12 @@
 .vortex-capability:last-child { padding-bottom: 0; }
 .vortex-capability h3 { font-size: clamp(26px, 3vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -.035em; }
 .vortex-capability .eyebrow:last-child { font-size: 10px; letter-spacing: .07em; }
+.vortex-vision-area { display: grid; grid-template-columns: 28px 1fr; gap: 24px; padding-block: 28px 32px; border-top: 1px solid var(--color-line); }
+.vortex-vision-area > .eyebrow { padding-top: 7px; }
+.vortex-vision-area:last-child { padding-bottom: 0; }
+.vortex-vision-title { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; }
+.vortex-vision-title h3 { font-size: clamp(24px, 2.5vw, 36px); line-height: 1.1; font-weight: 400; letter-spacing: -.035em; }
+.vortex-vision-title .eyebrow { font-size: 9px; letter-spacing: .08em; }
 .vortex-workflow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: clamp(50px, 6vw, 90px); }
 .vortex-workflow li { padding-top: 22px; border-top: 1px solid var(--color-line); }
 .vortex-workflow h3 { font-size: clamp(23px, 2.3vw, 32px); line-height: 1.15; letter-spacing: -.03em; font-weight: 400; margin-block: 52px 20px; }
@@ -156,10 +162,12 @@
   .vortex-project-art-caption { left: 20px; bottom: 20px; font-size: 9px; }
   .vortex-project-art-note { display: none; }
   .vortex-project-details > .eyebrow { font-size: 9px; gap: 14px; }
+  .vortex-project-art-caption { max-width: calc(100% - 40px); line-height: 1.7; }
   .vortex-status { padding-left: 14px; }
   .vortex-specs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; }
   .vortex-specs dd { font-size: 13px; }
   .vortex-capability { grid-template-columns: 24px 1fr; gap: 15px; }
+  .vortex-vision-area { grid-template-columns: 24px 1fr; gap: 15px; }
   .vortex-workflow { grid-template-columns: 1fr; gap: 40px; }
   .vortex-workflow h3 { margin-top: 28px; }
   .vortex-workflow .body { max-width: none; }
