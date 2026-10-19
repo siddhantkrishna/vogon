@@ -16,11 +16,36 @@ export function checkPassword(value, email) {
   );
 }
 export function csrfSafe(req) {
-  const target = process.env.ALLOWED_ORIGIN || 'https://vogon.in';
   const origin = req.headers.origin;
-  if (!origin) return false;
-  try { return new URL(origin).host === new URL(target).host || (process.env.VERCEL_ENV !== 'production' && new URL(origin).hostname === 'localhost'); }
-  catch { return false; }
+
+  if (!origin || typeof origin !== "string") return false;
+
+  try {
+    const url = new URL(origin);
+
+    const productionHosts = new Set([
+      "vogon.in",
+      "www.vogon.in"
+    ]);
+
+    if (
+      url.protocol === "https:" &&
+      productionHosts.has(url.hostname)
+    ) {
+      return true;
+    }
+
+    if (
+      process.env.VERCEL_ENV !== "production" &&
+      ["localhost", "127.0.0.1"].includes(url.hostname)
+    ) {
+      return true;
+    }
+
+    return false;
+  } catch {
+    return false;
+  }
 }
 export function createSession(res) {
   const payload = `${Date.now() + maxAge * 1000}.${randomBytes(12).toString('hex')}`;
