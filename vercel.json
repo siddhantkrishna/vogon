@@ -56,6 +56,14 @@
     {
       "source": "/domains/:domain",
       "destination": "/index.html"
+    },
+    {
+      "source": "/doccumentation",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/documentation",
+      "destination": "/index.html"
     }
   ]
 }

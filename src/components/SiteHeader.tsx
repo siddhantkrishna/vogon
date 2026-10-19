@@ -17,6 +17,7 @@ const menuLinks = [
   { label: "Research", to: "/research" },
   { label: "Company", to: "/company" },
   { label: "Contact", to: "/contact" },
+  { label: "Documentation", to: "/doccumentation" },
 ];
 
 export function SiteHeader() {
@@ -107,6 +108,10 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
             >
               Careers
+            </NavLink>
+
+            <NavLink to="/doccumentation" aria-label="Documentation" title="Documentation" className={({isActive})=>`vogon-document-icon ${isActive?'is-active':''}`}>
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.35" strokeLinejoin="round" aria-hidden="true"><path d="M6 2.75h8l4 4V21H6z"/><path d="M14 2.75V7h4M9 12h6M9 16h6"/></svg>
             </NavLink>
 
             <button

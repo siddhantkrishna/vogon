@@ -1883,3 +1883,8 @@ img[loading="lazy"] {
     transition: none;
   }
 }
+
+/* Documentation access icon in the VOGON header */
+.vogon-document-icon { display:inline-flex;align-items:center;justify-content:center;color:rgba(245,245,242,.75);transition:color .2s ease;min-width:28px;min-height:40px; }
+.vogon-document-icon:hover,.vogon-document-icon.is-active {color:#fff;}
+.vogon-document-icon:focus-visible {outline:1px solid white;outline-offset:3px;}

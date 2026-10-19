@@ -1,3 +1,4 @@
+import DocumentationPage from "@/pages/DocumentationPage";
 import LandFilm from "@/pages/LandFilm";
 import DomainPage from "@/pages/DomainPage";
 import AdminPage from "@/pages/AdminPage";
@@ -66,6 +67,8 @@ function Shell() {
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<Navigate to="/domains/software" replace />} />
             <Route path="/vortex" element={<VortexPage />} />
+            <Route path="/doccumentation" element={<DocumentationPage />} />
+            <Route path="/documentation" element={<Navigate to="/doccumentation" replace />} />
             <Route path="/domains/land" element={<LandFilm />} />
             <Route path="/domains/:domain" element={<DomainPage />} />
             <Route path="/technologies" element={<TechnologiesPage />} />
