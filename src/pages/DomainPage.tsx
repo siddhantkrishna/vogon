@@ -1,3 +1,4 @@
+import { VortexProjectCard } from "@/sections/ProductsSection";
 import { VogonIcon } from "@/components/VogonIcon";
 import { Link, useParams } from "react-router-dom";
 import SpaceComingSoon from "./SpaceComingSoon";
@@ -79,13 +80,28 @@ export default function DomainPage() {
         </div>
       </div>
 
-      <div className="vogon-domain-image">
-        <img
-          src={content.image}
-          alt={`Conceptual imagery for VOGON ${content.title}`}
-        />
-        <span>CONCEPTUAL IMAGERY — NOT A VOGON PRODUCT</span>
-      </div>
+      {domain === "software" ? (
+        <section
+          className="shell border-t border-line pb-24 pt-12 md:pb-36"
+          aria-labelledby="software-project-heading"
+        >
+          <div className="mb-10 flex flex-wrap items-center justify-between gap-4">
+            <h2 id="software-project-heading" className="eyebrow">
+              VOGON / SOFTWARE SYSTEMS
+            </h2>
+            <span className="eyebrow">001 / VORTEX</span>
+          </div>
+          <VortexProjectCard />
+        </section>
+      ) : (
+        <div className="vogon-domain-image">
+          <img
+            src={content.image}
+            alt={`Conceptual imagery for VOGON ${content.title}`}
+          />
+          <span>CONCEPTUAL IMAGERY — NOT A VOGON PRODUCT</span>
+        </div>
+      )}
 
       <div className="shell vogon-domain-footer">
         <div>

@@ -26,7 +26,7 @@ export default function VortexPage() {
         <VortexField className="vortex-hero-field" />
         <div className="shell vortex-hero-content">
           <div className="vortex-hero-meta eyebrow">
-            <Link to="/products" className="u-link">Products / Project {vortex.index}</Link>
+            <Link to="/domains/software" className="u-link">Software / Project {vortex.index}</Link>
             <span className="vortex-private">Private platform / In development</span>
           </div>
           <MaskedTextReveal as="h1" id="vortex-title" lines={[vortex.name]} trigger="load" className="vortex-title" />
@@ -154,7 +154,7 @@ export default function VortexPage() {
           <p className="body max-w-md">Open the current simulation laboratory with an authorised account. Industrial ERP features remain under development and are not available through this sign-in.</p>
           <OpenVortex />
         </div>
-        <div className="mt-12"><AnimatedLink to="/products" arrow="→">All products / projects</AnimatedLink></div>
+        <div className="mt-12"><AnimatedLink to="/domains/software" arrow="→">Back to Software</AnimatedLink></div>
       </section>
     </article>
   );

@@ -1,7 +1,6 @@
 import { useSeo } from "@/components/ui";
 import { CinematicHero } from "@/sections/CinematicHero";
 import { CapabilityIndex } from "@/sections/CapabilityIndex";
-import { ProductsSection } from "@/sections/ProductsSection";
 import {AboutSection, CareersSection, FinalCta, ResearchSection, } from "@/sections/HomeSections";
 
 export default function HomePage() {
@@ -15,7 +14,6 @@ export default function HomePage() {
     <>
       <CinematicHero />
       <CapabilityIndex />
-      <ProductsSection />
       <ResearchSection />
       <AboutSection />
       <CareersSection />

@@ -9,11 +9,9 @@ const primaryLinks = [
   { label: "Land", to: "/domains/land" },
   { label: "Sea", to: "/domains/sea" },
   { label: "Software", to: "/domains/software" },
-  { label: "Products", to: "/products" },
 ];
 
 const menuLinks = [
-  { label: "Products / Projects", to: "/products" },
   { label: "Technologies", to: "/technologies" },
   { label: "Capabilities", to: "/capabilities" },
   { label: "Research", to: "/research" },
@@ -94,7 +92,7 @@ export function SiteHeader() {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `vogon-navigation-link ${isActive || (link.to === "/products" && pathname === "/vortex") ? "is-active" : ""}`
+                  `vogon-navigation-link ${isActive || (link.to === "/domains/software" && pathname === "/vortex") ? "is-active" : ""}`
                 }
               >
                 {link.label}

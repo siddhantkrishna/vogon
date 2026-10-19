@@ -2,13 +2,12 @@ import LandFilm from "@/pages/LandFilm";
 import DomainPage from "@/pages/DomainPage";
 import AdminPage from "@/pages/AdminPage";
 import { useEffect, type ReactNode } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { ReducedMotionProvider, ScrollTrigger } from "@/lib/motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ScrollProgress } from "@/components/motion";
 import HomePage from "@/pages/HomePage";
-import ProductsPage from "@/pages/ProductsPage";
 import VortexPage from "@/pages/VortexPage";
 import { TechnologiesPage, TechnologyDetailPage } from "@/pages/TechnologyPages";
 import { ResearchDetailPage, ResearchPage } from "@/pages/ResearchPages";
@@ -65,7 +64,7 @@ function Shell() {
         <PageTransition>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products" element={<Navigate to="/domains/software" replace />} />
             <Route path="/vortex" element={<VortexPage />} />
             <Route path="/domains/land" element={<LandFilm />} />
             <Route path="/domains/:domain" element={<DomainPage />} />
