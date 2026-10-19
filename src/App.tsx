@@ -54,7 +54,6 @@ function PageTransition({ children }: { children: ReactNode }) {
 function Shell() {
   const { pathname } = useLocation();
   if (pathname.startsWith("/admin")) return <AdminPage />;
-  if (pathname === "/domains/land") return <LandFilm />;
   return (
     <>
       <a href="#main" className="skip-link" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>
@@ -68,6 +67,7 @@ function Shell() {
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/vortex" element={<VortexPage />} />
+            <Route path="/domains/land" element={<LandFilm />} />
             <Route path="/domains/:domain" element={<DomainPage />} />
             <Route path="/technologies" element={<TechnologiesPage />} />
             <Route path="/technologies/:slug" element={<TechnologyDetailPage />} />

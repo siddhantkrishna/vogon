@@ -39,7 +39,7 @@ export default function LandFilm() {
   }, []);
 
   return (
-    <main className="fixed inset-0 z-[100] h-dvh w-screen overflow-hidden bg-black">
+    <main className="relative h-svh min-h-[500px] w-full overflow-hidden bg-black">
       <video
         ref={ref}
         src="/videos/land.mp4"
@@ -48,7 +48,7 @@ export default function LandFilm() {
         loop
         playsInline
         preload="auto"
-        className="h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover"
         aria-label="VOGON Land film"
       />
     </main>
