@@ -3,15 +3,7 @@ import { CinematicHero } from "@/sections/CinematicHero";
 import { PinnedStorySequence } from "@/sections/PinnedStorySequence";
 import { CapabilityIndex } from "@/sections/CapabilityIndex";
 import { ProductsSection } from "@/sections/ProductsSection";
-import {
-  AboutSection,
-  CareersSection,
-  FinalCta,
-  MissionSection,
-  PhilosophySection,
-  ResearchSection,
-  TechnologyDomains,
-} from "@/sections/HomeSections";
+import {AboutSection, CareersSection, FinalCta, MissionSection, ResearchSection, TechnologyDomains, } from "@/sections/HomeSections";
 
 export default function HomePage() {
   useSeo({
@@ -26,7 +18,6 @@ export default function HomePage() {
       <MissionSection />
       <TechnologyDomains />
       <PinnedStorySequence />
-      <PhilosophySection />
       <CapabilityIndex />
       <ProductsSection />
       <ResearchSection />
