@@ -1,3 +1,4 @@
+import LandFilm from "@/pages/LandFilm";
 import DomainPage from "@/pages/DomainPage";
 import AdminPage from "@/pages/AdminPage";
 import { useEffect, type ReactNode } from "react";
@@ -53,6 +54,7 @@ function PageTransition({ children }: { children: ReactNode }) {
 function Shell() {
   const { pathname } = useLocation();
   if (pathname.startsWith("/admin")) return <AdminPage />;
+  if (pathname === "/domains/land") return <LandFilm />;
   return (
     <>
       <a href="#main" className="skip-link" onClick={(e) => { e.preventDefault(); document.getElementById("main")?.focus(); }}>
