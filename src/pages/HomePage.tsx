@@ -2,6 +2,7 @@ import { useSeo } from "@/components/ui";
 import { CinematicHero } from "@/sections/CinematicHero";
 import { PinnedStorySequence } from "@/sections/PinnedStorySequence";
 import { CapabilityIndex } from "@/sections/CapabilityIndex";
+import { ProductsSection } from "@/sections/ProductsSection";
 import {
   AboutSection,
   CareersSection,
@@ -27,6 +28,7 @@ export default function HomePage() {
       <PinnedStorySequence />
       <PhilosophySection />
       <CapabilityIndex />
+      <ProductsSection />
       <ResearchSection />
       <AboutSection />
       <CareersSection />

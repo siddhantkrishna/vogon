@@ -28,11 +28,59 @@ export const site = {
 };
 
 export const nav = [
+  { label: "Products / Projects", to: "/products" },
   { label: "Technologies", to: "/technologies" },
   { label: "Capabilities", to: "/capabilities" },
   { label: "Company", to: "/company" },
   { label: "Careers", to: "/careers" },
 ];
+
+/* Public product information only. The VORTEX application remains private. */
+export const vortex = {
+  index: "001",
+  name: "VORTEX",
+  designation: "Total Perspective System",
+  category: "Synthetic intelligence-fusion research platform",
+  path: "/vortex",
+  loginUrl: "https://vortex-beryl-psi.vercel.app/login",
+  summary:
+    "A private research laboratory for bringing synthetic signals, spatial context and evidence into one coherent perspective.",
+  overview:
+    "VORTEX brings fictional scenarios into a shared simulation workspace. Explore synthetic maps and telemetry, trace incidents to their source evidence, and replay events to understand how the picture comes together.",
+  capabilities: [
+    {
+      index: "01",
+      title: "One synchronised picture.",
+      text: "Synthetic assets, sensors, telemetry and a local grid map share one simulation clock. Explore a fictional environment with a consistent view of time and context.",
+      label: "Spatial context / Telemetry / Shared clock",
+    },
+    {
+      index: "02",
+      title: "Evidence behind every incident.",
+      text: "Inspect evidence-linked incidents, source events and observation times. Examine delayed or contradictory signals and add operator notes to the research record.",
+      label: "Source evidence / Incidents / Annotations",
+    },
+    {
+      index: "03",
+      title: "Return to the decisive moment.",
+      text: "Pause, change playback speed or seek through timeline checkpoints. Seeded, deterministic scenarios make runs repeatable and let researchers reconstruct an incident at detection.",
+      label: "Timeline / Reconstruction / Seeded replay",
+    },
+    {
+      index: "04",
+      title: "Carry the research forward.",
+      text: "Generate incident reports and export synthetic datasets for further examination. Keep the connection between the scenario, its evidence and the resulting brief.",
+      label: "Incident reports / Markdown briefs / CSV exports",
+    },
+  ],
+  workflow: [
+    { index: "01", title: "Set the scenario", text: "Choose a fictional research environment with predefined synthetic conditions." },
+    { index: "02", title: "Examine the evidence", text: "Follow the shared timeline, explore signals and inspect the events behind an incident." },
+    { index: "03", title: "Replay. Review. Refine.", text: "Reconstruct key moments, record observations and export the research for review." },
+  ],
+  limits:
+    "VORTEX uses synthetic data in fictional scenarios only. It does not connect to real assets, live surveillance feeds, geographic coordinates, personal-location data, biometrics or targeting systems. It is a research demonstrator, not a certified operational system.",
+};
 
 /* ------------------------------------------------------------------ */
 /* Technology focus areas (proposed focus — not existing products)    */

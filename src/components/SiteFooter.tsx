@@ -7,6 +7,8 @@ const columns = [
   {
     title: "Explore",
     links: [
+      { label: "Products / Projects", to: "/products" },
+      { label: "VORTEX — Project 001", to: "/vortex" },
       { label: "Technologies", to: "/technologies" },
       { label: "Capabilities", to: "/capabilities" },
       { label: "Research", to: "/research" },

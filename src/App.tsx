@@ -7,6 +7,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ScrollProgress } from "@/components/motion";
 import HomePage from "@/pages/HomePage";
+import ProductsPage from "@/pages/ProductsPage";
+import VortexPage from "@/pages/VortexPage";
 import { TechnologiesPage, TechnologyDetailPage } from "@/pages/TechnologyPages";
 import { ResearchDetailPage, ResearchPage } from "@/pages/ResearchPages";
 import { CapabilitiesPage, CareersPage, CompanyPage } from "@/pages/CompanyPages";
@@ -62,6 +64,8 @@ function Shell() {
         <PageTransition>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/vortex" element={<VortexPage />} />
             <Route path="/domains/:domain" element={<DomainPage />} />
             <Route path="/technologies" element={<TechnologiesPage />} />
             <Route path="/technologies/:slug" element={<TechnologyDetailPage />} />

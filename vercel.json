@@ -2,6 +2,14 @@
   "framework": "vite",
   "rewrites": [
     {
+      "source": "/products",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/vortex",
+      "destination": "/index.html"
+    },
+    {
       "source": "/admin",
       "destination": "/index.html"
     },

@@ -1,0 +1,171 @@
+/* VORTEX — VOGON Project 001. Extends the existing brand, type and motion. */
+.vortex-field {
+  pointer-events: none;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.vortex-field svg { display: block; width: 100%; height: 100%; }
+.vortex-field-orbits { transform-origin: 400px 400px; animation: vortex-orbit 100s linear infinite; }
+@keyframes vortex-orbit { to { transform: rotate(360deg); } }
+
+.vortex-project-card { display: block; }
+.vortex-project-art {
+  position: relative;
+  isolation: isolate;
+  min-height: 370px;
+  aspect-ratio: 2.5;
+  overflow: hidden;
+  background: #0a0b0c;
+  border: 1px solid var(--color-line);
+  transition: border-color 500ms var(--ease-expo);
+}
+.vortex-project-card:hover .vortex-project-art,
+.vortex-project-card:focus-visible .vortex-project-art { border-color: #666; }
+.vortex-project-art .vortex-field {
+  position: absolute;
+  width: 74%;
+  top: 50%;
+  right: -5%;
+  transform: translateY(-50%);
+  transition: scale 1200ms var(--ease-expo);
+}
+.vortex-project-card:hover .vortex-field { scale: 1.025; }
+.vortex-project-art-meta {
+  position: absolute;
+  inset: 26px 30px auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  z-index: 1;
+}
+.vortex-project-word {
+  position: absolute;
+  left: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(90px, 14vw, 215px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.065em;
+}
+.vortex-project-art-caption,
+.vortex-project-art-note { position: absolute; bottom: 26px; }
+.vortex-project-art-caption { left: 30px; color: var(--color-paper); }
+.vortex-project-art-note { right: 30px; }
+.vortex-project-details { padding-block: 28px 30px; border-bottom: 1px solid var(--color-line); }
+.vortex-project-details > .eyebrow { display: flex; align-items: center; gap: 24px; margin-bottom: 22px; }
+.vortex-status { color: #b9b9b5; padding-left: 24px; border-left: 1px solid var(--color-line); }
+.vortex-project-description { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+
+.vortex-hero { position: relative; isolation: isolate; overflow: hidden; border-bottom: 1px solid var(--color-line); }
+.vortex-hero-field {
+  position: absolute;
+  z-index: -1;
+  width: min(78vw, 1120px);
+  top: 50%;
+  right: -8%;
+  transform: translateY(-44%);
+}
+.vortex-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, #050505 0%, #050505c9 24%, transparent 65%), linear-gradient(0deg, #050505 0%, transparent 16%);
+  pointer-events: none;
+}
+.vortex-hero-content { padding-top: 128px; padding-bottom: 28px; }
+.vortex-hero-meta { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.vortex-private { display: inline-flex; align-items: center; gap: 10px; }
+.vortex-private::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border: 1px solid currentColor;
+}
+.vortex-title {
+  width: fit-content;
+  margin-block: clamp(45px, 5vw, 80px) 0;
+  font-family: var(--font-display);
+  font-size: clamp(88px, 18.4vw, 285px);
+  line-height: .85;
+  font-weight: 500;
+  letter-spacing: -.065em;
+}
+.vortex-hero-copy { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-top: 56px; }
+.vortex-hero-intro { max-width: 400px; justify-self: end; padding-top: 1px; }
+.vortex-hero-copy h2 {
+  font-size: clamp(32px, 3.6vw, 54px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -.04em;
+}
+.vortex-open { min-width: 242px; background: var(--color-paper); color: var(--color-ink); }
+.vortex-open:hover { background: transparent; color: var(--color-paper); }
+.vortex-hero-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 56px;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-line);
+}
+.vortex-indicator { display: inline-block; width: 5px; height: 5px; margin-right: 10px; background: var(--color-signal); vertical-align: middle; }
+.vortex-section { padding-block: clamp(88px, 10vw, 160px); }
+.vortex-specs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; padding-top: 28px; }
+.vortex-specs dd { font-size: 15px; margin-top: 13px; }
+.vortex-capability { display: grid; grid-template-columns: 28px 1fr; gap: 24px; padding-block: 36px 48px; border-top: 1px solid var(--color-line); }
+.vortex-capability > .eyebrow { padding-top: 8px; }
+.vortex-capability:last-child { padding-bottom: 0; }
+.vortex-capability h3 { font-size: clamp(26px, 3vw, 42px); line-height: 1.1; font-weight: 400; letter-spacing: -.035em; }
+.vortex-capability .eyebrow:last-child { font-size: 10px; letter-spacing: .07em; }
+.vortex-workflow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: clamp(50px, 6vw, 90px); }
+.vortex-workflow li { padding-top: 22px; border-top: 1px solid var(--color-line); }
+.vortex-workflow h3 { font-size: clamp(23px, 2.3vw, 32px); line-height: 1.15; letter-spacing: -.03em; font-weight: 400; margin-block: 52px 20px; }
+.vortex-workflow .body { max-width: 340px; }
+.vortex-boundary { padding-block: clamp(48px, 5.5vw, 88px); border-block: 1px solid var(--color-line); background: #0a0a0a; }
+.vortex-access-row { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding-top: 32px; }
+
+@media (min-width: 1600px) {
+  .vortex-hero-field { right: calc((100vw - 1600px) / 2 - 100px); }
+}
+@media (max-width: 1023px) {
+  .vortex-hero-field { width: 100vw; right: -27%; top: 53%; opacity: .8; }
+  .vortex-project-description { align-items: flex-start; flex-direction: column; gap: 24px; }
+}
+@media (max-width: 767px) {
+  .vortex-hero-content { padding-top: 110px; }
+  .vortex-hero-meta { font-size: 9px; letter-spacing: .08em; gap: 12px; }
+  .vortex-private { gap: 7px; }
+  .vortex-title { font-size: 22vw; margin-block: 50px 38px; }
+  .vortex-hero-field { width: 145vw; right: -57%; top: 37%; transform: translateY(-50%); opacity: .55; }
+  .vortex-hero::after { background: linear-gradient(0deg, #050505 0%, #050505b3 43%, transparent 100%); }
+  .vortex-hero-copy { margin-top: 0; }
+  .vortex-hero-copy { grid-template-columns: 1fr; gap: 28px; }
+  .vortex-hero-intro { justify-self: start; }
+  .vortex-hero-copy .body-lg { max-width: 340px; }
+  .vortex-hero-bottom { margin-top: 48px; gap: 20px; font-size: 10px; }
+  .vortex-project-art { aspect-ratio: 1.2; min-height: 280px; }
+  .vortex-project-art .vortex-field { width: 135%; right: -44%; }
+  .vortex-project-art-meta { inset: 20px 20px auto; flex-direction: column; gap: 8px; font-size: 9px; }
+  .vortex-project-word { left: 5%; font-size: 19.5vw; }
+  .vortex-project-art-caption { left: 20px; bottom: 20px; font-size: 9px; }
+  .vortex-project-art-note { display: none; }
+  .vortex-project-details > .eyebrow { font-size: 9px; gap: 14px; }
+  .vortex-status { padding-left: 14px; }
+  .vortex-specs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; }
+  .vortex-specs dd { font-size: 13px; }
+  .vortex-capability { grid-template-columns: 24px 1fr; gap: 15px; }
+  .vortex-workflow { grid-template-columns: 1fr; gap: 40px; }
+  .vortex-workflow h3 { margin-top: 28px; }
+  .vortex-workflow .body { max-width: none; }
+  .vortex-access-row { align-items: flex-start; flex-direction: column; gap: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vortex-field-orbits { animation: none; }
+  .vortex-project-art .vortex-field { transition: none; }
+}

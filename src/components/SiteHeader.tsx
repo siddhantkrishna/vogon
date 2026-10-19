@@ -9,9 +9,11 @@ const primaryLinks = [
   { label: "Land", to: "/domains/land" },
   { label: "Sea", to: "/domains/sea" },
   { label: "Software", to: "/domains/software" },
+  { label: "Products", to: "/products" },
 ];
 
 const menuLinks = [
+  { label: "Products / Projects", to: "/products" },
   { label: "Technologies", to: "/technologies" },
   { label: "Capabilities", to: "/capabilities" },
   { label: "Research", to: "/research" },
@@ -92,7 +94,7 @@ export function SiteHeader() {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `vogon-navigation-link ${isActive ? "is-active" : ""}`
+                  `vogon-navigation-link ${isActive || (link.to === "/products" && pathname === "/vortex") ? "is-active" : ""}`
                 }
               >
                 {link.label}
@@ -158,7 +160,7 @@ export function SiteHeader() {
 
             <nav aria-label="Expanded navigation">
               <div className="vogon-mobile-domains">
-                {primaryLinks.map((link) => (
+                {primaryLinks.filter((link) => link.to !== "/products").map((link) => (
                   <NavLink
                     key={link.to}
                     to={link.to}
@@ -196,7 +198,7 @@ export function SiteHeader() {
                 className="vogon-menu-item vogon-mobile-careers"
                 onClick={() => setOpen(false)}
               >
-                <span className="vogon-menu-item-number">06</span>
+                <span className="vogon-menu-item-number">0{menuLinks.length + 1}</span>
                 <span className="vogon-menu-item-title">Careers</span>
                 <span className="vogon-menu-item-arrow" aria-hidden="true"><VogonIcon name="arrow-up-right" /></span>
               </NavLink>
