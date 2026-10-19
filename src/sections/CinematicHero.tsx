@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { gsap, useIsoLayoutEffect, useReducedMotion } from "@/lib/motion";
 import { img } from "@/content/site";
 
 export function CinematicHero() {
-  const section = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoReady, setVideoReady] = useState(false);
-  const reduced = useReducedMotion();
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -16,112 +14,66 @@ export function CinematicHero() {
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
+    video.loop = true;
 
-    const play = () => {
-      video.play().catch(() => {
-        setVideoReady(false);
-      });
+    const playVideo = async () => {
+      try {
+        await video.play();
+      } catch {
+        // The poster remains visible until playback is possible.
+      }
     };
 
-    const onReady = () => {
-      setVideoReady(true);
-      play();
+    const onPlaying = () => {
+      setVideoPlaying(true);
+      setVideoFailed(false);
     };
 
-    video.addEventListener("loadeddata", onReady);
-    video.addEventListener("canplay", onReady);
+    const onPause = () => setVideoPlaying(false);
+    const onError = () => {
+      setVideoPlaying(false);
+      setVideoFailed(true);
+    };
 
-    if (video.readyState >= 2) onReady();
-    else video.load();
+    const onVisibility = () => {
+      if (!document.hidden) void playVideo();
+    };
 
-    document.addEventListener("visibilitychange", play);
+    video.addEventListener("playing", onPlaying);
+    video.addEventListener("pause", onPause);
+    video.addEventListener("error", onError);
+    document.addEventListener("visibilitychange", onVisibility);
+
+    void playVideo();
 
     return () => {
-      video.removeEventListener("loadeddata", onReady);
-      video.removeEventListener("canplay", onReady);
-      document.removeEventListener("visibilitychange", play);
+      video.removeEventListener("playing", onPlaying);
+      video.removeEventListener("pause", onPause);
+      video.removeEventListener("error", onError);
+      document.removeEventListener("visibilitychange", onVisibility);
     };
   }, []);
 
-  useIsoLayoutEffect(() => {
-    if (!section.current || reduced) return;
-
-    const ctx = gsap.context(() => {
-      const q = gsap.utils.selector(section.current);
-
-      const intro = gsap.timeline({
-        defaults: { ease: "power3.out" }
-      });
-
-      intro
-        .fromTo(q("[data-vogon-video]"),
-          { scale: 1.08, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 2.4 }
-        )
-        .fromTo(q("[data-vogon-title]"),
-          { y: 80, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1.3 },
-          0.45
-        )
-        .fromTo(q("[data-vogon-info]"),
-          { y: 25, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.9 },
-          1
-        );
-
-      gsap.to(q("[data-vogon-video]"), {
-        scale: 1.12,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        }
-      });
-
-      gsap.to(q("[data-vogon-title]"), {
-        y: -90,
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section.current,
-          start: "top top",
-          end: "80% top",
-          scrub: true
-        }
-      });
-    }, section);
-
-    return () => ctx.revert();
-  }, [reduced]);
-
   return (
-    <section
-      ref={section}
-      className="vogon-film-hero"
-      aria-label="VOGON introduction"
-    >
-      <div data-vogon-video className="vogon-film-media">
-        <video
-          ref={videoRef}
-          className="vogon-film-video"
-          style={{ opacity: videoReady ? 1 : 0 }}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={img("hero")}
-          aria-hidden="true"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
-
+    <section className="vogon-film-hero" aria-label="VOGON introduction">
+      <div className="vogon-film-media">
         <img
           src={img("hero")}
           alt=""
           className="vogon-film-poster"
+          aria-hidden="true"
+        />
+
+        <video
+          ref={videoRef}
+          src="/videos/hero.mp4"
+          className={`vogon-film-video ${videoPlaying ? "is-playing" : ""}`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster={img("hero")}
           aria-hidden="true"
         />
       </div>
@@ -129,7 +81,7 @@ export function CinematicHero() {
       <div className="vogon-film-shade" aria-hidden="true" />
 
       <div className="vogon-film-main">
-        <div data-vogon-title className="vogon-film-headline">
+        <div className="vogon-film-headline">
           <p className="vogon-film-eyebrow">
             VOGON / DEFENCE & AEROSPACE
           </p>
@@ -141,7 +93,7 @@ export function CinematicHero() {
           </h1>
         </div>
 
-        <div data-vogon-info className="vogon-film-bottom">
+        <div className="vogon-film-bottom">
           <div className="vogon-film-statement">
             <span>INTELLIGENCE</span>
             <span>AUTONOMY</span>
@@ -168,6 +120,22 @@ export function CinematicHero() {
           </Link>
         </div>
       </div>
+
+      {videoFailed && (
+        <button
+          type="button"
+          className="vogon-film-retry"
+          onClick={() => {
+            const video = videoRef.current;
+            if (!video) return;
+            setVideoFailed(false);
+            video.load();
+            void video.play().catch(() => setVideoFailed(true));
+          }}
+        >
+          PLAY FILM
+        </button>
+      )}
 
       <div className="vogon-film-bottom-rule" aria-hidden="true" />
     </section>
