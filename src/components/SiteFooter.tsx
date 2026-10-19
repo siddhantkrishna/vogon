@@ -1,84 +1,179 @@
-import { VogonIcon } from "@/components/VogonIcon";
 import { Link } from "react-router-dom";
-import { site } from "@/content/site";
-import { Wordmark } from "./ui";
+import { useRef } from "react";
+import { gsap, useIsoLayoutEffect, useReducedMotion } from "@/lib/motion";
 
-const columns = [
+const groups = [
   {
-    title: "Explore",
+    title: "EXPLORE",
     links: [
-      { label: "Products / Projects", to: "/products" },
-      { label: "VORTEX — Project 001", to: "/vortex" },
+      { label: "Space", to: "/domains/space" },
+      { label: "Air", to: "/domains/air" },
+      { label: "Land", to: "/domains/land" },
+      { label: "Sea", to: "/domains/sea" },
+      { label: "Software", to: "/domains/software" },
+    ],
+  },
+  {
+    title: "TECHNOLOGY",
+    links: [
       { label: "Technologies", to: "/technologies" },
       { label: "Capabilities", to: "/capabilities" },
       { label: "Research", to: "/research" },
+      { label: "VORTEX", to: "/vortex" },
     ],
   },
   {
-    title: "Company",
+    title: "COMPANY",
     links: [
       { label: "About", to: "/company" },
       { label: "Careers", to: "/careers" },
-    ],
-  },
-  {
-    title: "Connect",
-    links: [{ label: "Contact", to: "/contact" }, ...site.facts.social.map((s) => ({ label: s.label, to: s.href }))],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy Policy", to: "/privacy" },
-      { label: "Terms", to: "/terms" },
+      { label: "Contact", to: "/contact" },
     ],
   },
 ];
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
+  const brandRef = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+
+  useIsoLayoutEffect(() => {
+    if (!brandRef.current || reduced) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".vogon-footer-brandmark",
+        { yPercent: 12, opacity: 0 },
+        {
+          yPercent: 0,
+          opacity: 1,
+          duration: 1.4,
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: brandRef.current,
+            start: "top 92%",
+            once: true,
+          },
+        }
+      );
+    }, brandRef);
+
+    return () => ctx.revert();
+  }, [reduced]);
+
   return (
-    <footer className="relative border-t border-line bg-ink pt-20 md:pt-28" aria-labelledby="footer-heading">
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
-      <div className="shell">
-        <div className="grid-12 gap-y-12">
-          <div className="col-span-4 md:col-span-4">
-            <p className="body-lg max-w-sm text-paper/80">Intelligence meets engineering. Building the next generation from India.</p>
-          </div>
-          {columns.map((col) => (
-            <nav key={col.title} aria-label={col.title} className="col-span-2 md:col-span-2">
-              <p className="eyebrow mb-5">{col.title}</p>
-              <ul className="space-y-3">
-                {col.links.map((l) => (
-                  <li key={l.label}>
-                    <Link to={l.to} className="u-link text-[15px] text-paper/80 hover:text-paper">
-                      {l.label}
+    <footer className="vogon-editorial-footer">
+
+      <div className="vogon-footer-top">
+
+        <div className="vogon-footer-navigation">
+
+          {groups.map((group) => (
+            <nav key={group.title} aria-label={group.title}>
+              <h2 className="vogon-footer-label">
+                {group.title}
+              </h2>
+
+              <ul>
+                {group.links.map((link) => (
+                  <li key={link.to}>
+                    <Link to={link.to}>
+                      {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
             </nav>
           ))}
+
+          <div className="vogon-footer-contact">
+            <h2 className="vogon-footer-label">
+              INQUIRIES
+            </h2>
+
+            <a href="mailto:s@vogon.in">
+              s@vogon.in
+            </a>
+
+            <div className="vogon-footer-contact-action">
+              <Link to="/contact">
+                START A CONVERSATION
+                <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+
+            <p>
+              DEFENCE / AEROSPACE / INTELLIGENCE
+            </p>
+          </div>
+
         </div>
 
-        <div className="mt-24 text-paper md:mt-36" aria-hidden>
-          <Wordmark className="w-full" title="" />
+        <div className="vogon-footer-meta">
+
+          <span>
+            © {year} VOGON
+          </span>
+
+          <span>
+            INDEPENDENT ENGINEERING COMPANY
+          </span>
+
+          <div>
+            <Link to="/privacy">PRIVACY</Link>
+            <Link to="/terms">TERMS</Link>
+            <Link to="/admin">ADMIN</Link>
+          </div>
+
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-line py-7 md:flex-row md:items-center md:justify-between">
-          <p className="eyebrow">© {year} VOGON. All rights reserved.</p>
-          <p className="eyebrow">{site.domain.replace("https://", "")} — India</p>
-        </div>
       </div>
-    
-        <a
-          href="/admin"
-          aria-label="Open VOGON admin panel"
-          className="inline-flex items-center gap-2 border border-white/20 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.15em] text-white/60 transition-colors duration-300 hover:border-white/60 hover:text-white"
-        >
-          Admin <span aria-hidden="true"><VogonIcon name="arrow-up-right" /></span>
-        </a>
-</footer>
+
+      <div className="vogon-footer-brand-section" ref={brandRef}>
+
+        <div className="vogon-footer-brand-top">
+          <span>ENGINEERING THE NEXT FRONTIER.</span>
+          <span>VOGON / INDIA</span>
+        </div>
+
+        <div className="vogon-footer-brand-title">
+          <h2>
+            BUILT FOR
+            <br />
+            WHAT COMES NEXT.
+          </h2>
+        </div>
+
+        <div className="vogon-footer-brand-wrapper">
+
+          <div
+            className="vogon-footer-brandmark"
+            role="img"
+            aria-label="VOGON"
+          />
+
+        </div>
+
+        <div className="vogon-footer-brand-bottom">
+          <span>
+            AUTONOMY. INTELLIGENCE. ENGINEERING.
+          </span>
+
+          <a href="#top" onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({
+              top: 0,
+              behavior: window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+              ).matches ? "instant" : "smooth",
+            });
+          }}>
+            BACK TO TOP ↑
+          </a>
+        </div>
+
+      </div>
+
+    </footer>
   );
 }

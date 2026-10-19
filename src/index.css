@@ -1245,3 +1245,313 @@ img[loading="lazy"] {
 }
 
 /* END VOGON CINEMATIC FILM HERO V2 */
+
+/* =====================================================
+   VOGON EDITORIAL FOOTER
+   Reference direction: oversized experimental wordmark
+   ===================================================== */
+
+.vogon-editorial-footer {
+  width: 100%;
+  background: #efeee9;
+  color: #101010;
+  overflow: hidden;
+}
+
+.vogon-footer-top {
+  padding:
+    clamp(35px, 4vw, 70px)
+    clamp(24px, 3vw, 65px)
+    0;
+}
+
+.vogon-footer-navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.4fr;
+  gap: clamp(25px, 4vw, 80px);
+  min-height: 290px;
+}
+
+.vogon-footer-label {
+  margin: 0 0 20px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  color: #727272;
+}
+
+.vogon-footer-navigation ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.vogon-footer-navigation li a {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(13px, 1vw, 15px);
+  font-weight: 400;
+  color: #121212;
+  text-decoration: none;
+  transition: opacity .25s ease;
+}
+
+.vogon-footer-navigation li a:hover {
+  opacity: .45;
+}
+
+.vogon-footer-contact > a {
+  display: block;
+  width: fit-content;
+  font-family: "Inter Tight", sans-serif;
+  font-size: clamp(20px, 2vw, 34px);
+  font-weight: 500;
+  letter-spacing: -.045em;
+  color: #111;
+}
+
+.vogon-footer-contact-action {
+  margin-top: 25px;
+  padding-top: 12px;
+  border-top: 1px solid #bebdb7;
+  max-width: 300px;
+}
+
+.vogon-footer-contact-action a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+
+.vogon-footer-contact-action span {
+  font-size: 18px;
+  transition: transform .3s ease;
+}
+
+.vogon-footer-contact-action a:hover span {
+  transform: translate(4px, -4px);
+}
+
+.vogon-footer-contact p {
+  margin-top: 35px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .08em;
+  color: #777;
+}
+
+.vogon-footer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  min-height: 65px;
+  border-top: 1px solid #cccac4;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .065em;
+  color: #555;
+}
+
+.vogon-footer-meta > div {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.vogon-footer-meta a {
+  color: inherit;
+  transition: color .2s ease;
+}
+
+.vogon-footer-meta a:hover {
+  color: #000;
+}
+
+/* LAVENDER BRAND PANEL */
+
+.vogon-footer-brand-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: clamp(430px, 50vw, 850px);
+  padding:
+    clamp(24px, 2.5vw, 45px)
+    clamp(18px, 2.5vw, 45px)
+    24px;
+  background: #b99cff;
+  color: #5428b8;
+  overflow: hidden;
+}
+
+.vogon-footer-brand-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(9px, .75vw, 12px);
+  letter-spacing: .08em;
+}
+
+.vogon-footer-brand-title {
+  flex: 1;
+  padding-top: clamp(45px, 7vw, 120px);
+}
+
+.vogon-footer-brand-title h2 {
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  font-size: clamp(36px, 6vw, 110px);
+  font-weight: 500;
+  line-height: .95;
+  letter-spacing: -.065em;
+}
+
+.vogon-footer-brand-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: clamp(35px, 6vw, 100px);
+  overflow: hidden;
+}
+
+.vogon-footer-brandmark {
+  display: block;
+  width: 100%;
+  height: clamp(80px, 15vw, 290px);
+
+  background: #5428b8;
+
+  -webkit-mask-image: url("/brand/vogon-wordmark.png");
+  mask-image: url("/brand/vogon-wordmark.png");
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  transform-origin: center bottom;
+}
+
+.vogon-footer-brand-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 22px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .07em;
+}
+
+.vogon-footer-brand-bottom a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 4px;
+  transition: opacity .25s ease;
+}
+
+.vogon-footer-brand-bottom a:hover {
+  opacity: .55;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .vogon-footer-navigation {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: unset;
+    padding-bottom: 80px;
+    gap: 45px 25px;
+  }
+
+  .vogon-footer-brand-section {
+    min-height: 520px;
+  }
+
+  .vogon-footer-brandmark {
+    height: clamp(100px, 18vw, 180px);
+  }
+}
+
+@media (max-width: 600px) {
+  .vogon-footer-top {
+    padding: 35px 20px 0;
+  }
+
+  .vogon-footer-navigation {
+    gap: 42px 18px;
+  }
+
+  .vogon-footer-contact > a {
+    font-size: 20px;
+  }
+
+  .vogon-footer-contact p {
+    font-size: 8px;
+    line-height: 1.7;
+  }
+
+  .vogon-footer-meta {
+    padding-block: 20px;
+    gap: 15px;
+    font-size: 8px;
+  }
+
+  .vogon-footer-meta > div {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .vogon-footer-brand-section {
+    min-height: 500px;
+    padding: 22px 14px;
+  }
+
+  .vogon-footer-brand-top {
+    font-size: 8px;
+  }
+
+  .vogon-footer-brand-title {
+    padding-top: 65px;
+  }
+
+  .vogon-footer-brand-title h2 {
+    font-size: clamp(42px, 11vw, 70px);
+  }
+
+  .vogon-footer-brandmark {
+    height: 110px;
+  }
+
+  .vogon-footer-brand-bottom {
+    font-size: 8px;
+    line-height: 1.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vogon-footer-brandmark {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* END VOGON EDITORIAL FOOTER */
