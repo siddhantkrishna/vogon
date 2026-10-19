@@ -1,6 +1,5 @@
 import { useSeo } from "@/components/ui";
 import { CinematicHero } from "@/sections/CinematicHero";
-import { PinnedStorySequence } from "@/sections/PinnedStorySequence";
 import { CapabilityIndex } from "@/sections/CapabilityIndex";
 import { ProductsSection } from "@/sections/ProductsSection";
 import {AboutSection, CareersSection, FinalCta, MissionSection, ResearchSection, TechnologyDomains, } from "@/sections/HomeSections";
@@ -17,7 +16,6 @@ export default function HomePage() {
       <CinematicHero />
       <MissionSection />
       <TechnologyDomains />
-      <PinnedStorySequence />
       <CapabilityIndex />
       <ProductsSection />
       <ResearchSection />
