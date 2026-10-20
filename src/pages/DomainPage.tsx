@@ -1,4 +1,6 @@
 import { VortexProjectCard } from "@/sections/ProductsSection";
+import { PragyaProjectCard } from "@/sections/PragyaProjectCard";
+import { Reveal } from "@/components/motion";
 import { VogonIcon } from "@/components/VogonIcon";
 import { Link, useParams } from "react-router-dom";
 import SpaceComingSoon from "./SpaceComingSoon";
@@ -89,9 +91,10 @@ export default function DomainPage() {
             <h2 id="software-project-heading" className="eyebrow">
               VOGON / SOFTWARE SYSTEMS
             </h2>
-            <span className="eyebrow">001 / VORTEX</span>
+            <span className="eyebrow">002 SYSTEMS / VORTEX + PRAGYA</span>
           </div>
           <VortexProjectCard />
+          <Reveal><PragyaProjectCard /></Reveal>
         </section>
       ) : (
         <div className="vogon-domain-image">

@@ -1,0 +1,52 @@
+/* PRAGYA / Software 002 — monochrome computational field */
+.pragya-field { pointer-events:none; width:100%; height:100%; }
+.pragya-field svg { width:100%; height:100%; display:block; }
+.pragya-field-orbit { transform-origin: 510px 315px; animation: pragya-orbit 65s linear infinite; }
+.pragya-field-trace { stroke-dasharray: 140 34; animation: pragya-trace 19s linear infinite; }
+@keyframes pragya-orbit { to { transform:rotate(360deg); } }
+@keyframes pragya-trace { to { stroke-dashoffset:-1044; } }
+.pragya-project-card { display:block; margin-top:clamp(70px,9vw,140px); }
+.pragya-project-art { position:relative; isolation:isolate; min-height:370px; aspect-ratio:2.5; background:#08090a; overflow:hidden; border:1px solid var(--color-line); transition:border-color .5s var(--ease-expo); }
+.pragya-project-card:hover .pragya-project-art,.pragya-project-card:focus-visible .pragya-project-art { border-color:#888; }
+.pragya-project-art .pragya-field { position:absolute; inset:0; opacity:.82; transition:transform 1.2s var(--ease-expo),opacity .8s ease; }
+.pragya-project-card:hover .pragya-field { transform:scale(1.05); opacity:1; }
+.pragya-project-art::after { content:"";position:absolute;inset:0;background:linear-gradient(90deg,#050505 0%,#050505ad 28%,transparent 84%),linear-gradient(0deg,#050505b5 0%,transparent 24%);pointer-events:none; }
+.pragya-project-meta,.pragya-project-bottom { position:absolute;left:30px;right:30px;z-index:1;display:flex;justify-content:space-between;gap:20px; }
+.pragya-project-meta { top:26px; }
+.pragya-project-bottom { bottom:26px; }
+.pragya-project-word { position:absolute;z-index:1;left:3%;top:50%;transform:translateY(-50%);font:500 clamp(85px,14vw,220px)/.9 var(--font-display);letter-spacing:-.075em;white-space:nowrap;color:var(--color-paper); }
+.pragya-project-details { padding-block:28px 32px;border-bottom:1px solid var(--color-line); }
+.pragya-project-details > .eyebrow { display:flex;gap:24px;align-items:center;margin-bottom:22px; }
+.pragya-status { padding-left:24px;border-left:1px solid var(--color-line);color:#bababa; }
+.pragya-project-description { display:flex;align-items:flex-end;justify-content:space-between;gap:40px; }
+.pragya-project-explore { display:flex;align-items:center;gap:22px;white-space:nowrap; }
+.pragya-page { background:var(--color-ink); }
+.pragya-hero { position:relative; isolation:isolate;overflow:hidden;border-bottom:1px solid var(--color-line); }
+.pragya-hero-field { position:absolute;z-index:-1;width:min(94vw,1400px);height:auto;aspect-ratio:1000/620;right:-13%;top:40%;transform:translateY(-35%);opacity:.82; }
+.pragya-hero::after { content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#050505 0%,#050505ce 27%,transparent 78%),linear-gradient(0deg,#050505 0%,transparent 26%); }
+.pragya-hero-content { padding-top:128px;padding-bottom:28px; }
+.pragya-hero-meta { display:flex;justify-content:space-between;align-items:center;gap:25px; }
+.pragya-title { width:fit-content;max-width:100%;font:500 clamp(79px,18.2vw,275px)/.86 var(--font-display);letter-spacing:-.077em;margin-block:clamp(56px,7vw,105px) 0; }
+.pragya-hero-copy { position:relative;display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:clamp(75px,8vw,130px); }
+.pragya-hero-copy h2 { font-size:clamp(34px,3.8vw,60px);line-height:1.06;letter-spacing:-.048em;font-weight:400; }
+.pragya-hero-intro { max-width:410px;justify-self:end; }
+.pragya-open { min-width:230px;background:var(--color-paper);color:var(--color-ink); }
+.pragya-open:hover { background:transparent;color:var(--color-paper); }
+.pragya-hero-footer { position:relative;display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;border-top:1px solid var(--color-line);margin-top:clamp(55px,7vw,110px);padding-top:22px; }
+.pragya-section { padding-block:clamp(88px,10vw,160px); }
+.pragya-overview-copy { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;margin-top:46px; }
+.pragya-specs { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding-top:28px; }
+.pragya-specs dd { font-size:15px;margin-top:13px; }
+.pragya-capabilities { background:var(--color-ink-2);border-block:1px solid var(--color-line); }
+.pragya-capability { display:grid;grid-template-columns:30px 1fr;gap:24px;border-top:1px solid var(--color-line);padding-block:36px 48px; }
+.pragya-capability h3 { font-size:clamp(27px,3vw,43px);font-weight:400;letter-spacing:-.04em;line-height:1.1; }
+.pragya-access-row { display:flex;justify-content:space-between;align-items:center;gap:40px;padding-top:32px; }
+@media(max-width:1023px){.pragya-project-description{flex-direction:column;align-items:flex-start;gap:25px}.pragya-hero-field{width:110vw;right:-38%;opacity:.65}}
+@media(max-width:767px){
+ .pragya-project-card{margin-top:75px}.pragya-project-art{min-height:285px;aspect-ratio:1.16}.pragya-project-art .pragya-field{width:165%;left:-25%;right:auto}.pragya-project-word{font-size:20vw;left:4%}
+ .pragya-project-meta,.pragya-project-bottom{left:20px;right:20px;font-size:9px;flex-direction:column;gap:6px}.pragya-project-meta{top:20px}.pragya-project-bottom{bottom:20px}.pragya-project-bottom span:last-child{display:none}.pragya-project-details > .eyebrow{gap:14px;font-size:9px}.pragya-status{padding-left:14px}
+ .pragya-hero-content{padding-top:112px}.pragya-hero-meta{font-size:9px;flex-wrap:wrap}.pragya-title{font-size:20vw;margin-block:74px 22px}.pragya-hero-field{width:155vw;right:-67%;top:32%;opacity:.58}
+ .pragya-hero::after{background:linear-gradient(0deg,#050505 0%,#050505c9 41%,transparent 100%)}.pragya-hero-copy{grid-template-columns:1fr;margin-top:36px;gap:28px}.pragya-hero-intro{justify-self:start}.pragya-hero-footer{font-size:9px;margin-top:50px}
+ .pragya-overview-copy{grid-template-columns:1fr;gap:22px}.pragya-specs{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 20px}.pragya-specs dd{font-size:13px}.pragya-capability{grid-template-columns:25px 1fr;gap:15px}.pragya-access-row{align-items:flex-start;flex-direction:column;gap:28px}
+}
+@media(prefers-reduced-motion:reduce){.pragya-field-orbit,.pragya-field-trace{animation:none!important}.pragya-project-art .pragya-field{transition:none}}

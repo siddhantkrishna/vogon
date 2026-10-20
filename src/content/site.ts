@@ -36,6 +36,15 @@ export const nav = [
 ];
 
 /* Public product information only. The VORTEX application remains private. */
+export const pragya = {
+  index: "002",
+  name: "PRAGYA",
+  designation: "Scientific Reasoning by VOGON",
+  path: "/pragya",
+  appUrl: "https://pragya.vogon.in",
+  summary: "An AI-assisted research workspace for mathematics, engineering and life sciences, combining scientific reasoning, numerical computation, interactive plots and an exploratory oscillator simulation.",
+};
+
 export const vortex = {
   index: "001",
   name: "VORTEX",
