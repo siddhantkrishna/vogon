@@ -1,6 +1,7 @@
 import { VortexProjectCard } from "@/sections/ProductsSection";
 import { PragyaProjectCard } from "@/sections/PragyaProjectCard";
 import { Reveal } from "@/components/motion";
+import { useSeo } from "@/components/ui";
 import { VogonIcon } from "@/components/VogonIcon";
 import { Link, useParams } from "react-router-dom";
 import SpaceComingSoon from "./SpaceComingSoon";
@@ -50,6 +51,14 @@ const domains = {
 
 export default function DomainPage() {
   const { domain } = useParams();
+  const seo: Record<string, { title: string; description: string }> = {
+    space: { title: "Space & Aerospace Research", description: "VOGON explores space and aerospace engineering as a future research direction." },
+    air: { title: "Air Systems Research", description: "VOGON explores aerial autonomy, sensing and flight control." },
+    land: { title: "Land Robotics & Intelligent Systems", description: "VOGON explores robotics, machine perception and intelligent terrestrial systems." },
+    sea: { title: "Maritime Autonomous Systems", description: "VOGON explores maritime sensing, autonomy and engineering." },
+    software: { title: "VOGON Software — VORTEX & PRAGYA", description: "Explore VOGON's VORTEX industrial software concept and PRAGYA scientific AI reasoning workspace." },
+  };
+  useSeo({ title: seo[domain || ""]?.title || "Domain not found", description: seo[domain || ""]?.description, path: domain ? `/domains/${domain}` : "/domains" });
 
   if (domain === "space") return <SpaceComingSoon />;
 

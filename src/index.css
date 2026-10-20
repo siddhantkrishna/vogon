@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./vortex.css";
 @import "./pragya.css";
+@import "./founder.css";
 
 @theme {
   --color-ink: #050505;

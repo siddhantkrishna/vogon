@@ -16,6 +16,7 @@ const menuLinks = [
   { label: "Capabilities", to: "/capabilities" },
   { label: "Research", to: "/research" },
   { label: "Company", to: "/company" },
+  { label: "Founder", to: "/founder" },
   { label: "Contact", to: "/contact" },
   { label: "Documentation", to: "/doccumentation" },
 ];

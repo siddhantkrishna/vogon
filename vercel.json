@@ -2,19 +2,79 @@
   "framework": "vite",
   "rewrites": [
     {
-      "source": "/products",
-      "destination": "/index.html"
+      "source": "/founder",
+      "destination": "/founder/index.html"
+    },
+    {
+      "source": "/company",
+      "destination": "/company/index.html"
+    },
+    {
+      "source": "/domains/software",
+      "destination": "/domains/software/index.html"
     },
     {
       "source": "/vortex",
-      "destination": "/index.html"
+      "destination": "/vortex/index.html"
     },
     {
-      "source": "/admin",
-      "destination": "/index.html"
+      "source": "/pragya",
+      "destination": "/pragya/index.html"
     },
     {
       "source": "/technologies",
+      "destination": "/technologies/index.html"
+    },
+    {
+      "source": "/technologies/autonomous-systems",
+      "destination": "/technologies/autonomous-systems/index.html"
+    },
+    {
+      "source": "/technologies/aerospace-technologies",
+      "destination": "/technologies/aerospace-technologies/index.html"
+    },
+    {
+      "source": "/technologies/artificial-intelligence",
+      "destination": "/technologies/artificial-intelligence/index.html"
+    },
+    {
+      "source": "/technologies/advanced-robotics",
+      "destination": "/technologies/advanced-robotics/index.html"
+    },
+    {
+      "source": "/capabilities",
+      "destination": "/capabilities/index.html"
+    },
+    {
+      "source": "/research",
+      "destination": "/research/index.html"
+    },
+    {
+      "source": "/careers",
+      "destination": "/careers/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact/index.html"
+    },
+    {
+      "source": "/doccumentation",
+      "destination": "/doccumentation/index.html"
+    },
+    {
+      "source": "/domains/air",
+      "destination": "/domains/air/index.html"
+    },
+    {
+      "source": "/domains/land",
+      "destination": "/domains/land/index.html"
+    },
+    {
+      "source": "/domains/sea",
+      "destination": "/domains/sea/index.html"
+    },
+    {
+      "source": "/admin",
       "destination": "/index.html"
     },
     {
@@ -22,27 +82,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/capabilities",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/research",
-      "destination": "/index.html"
-    },
-    {
       "source": "/research/:slug",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/company",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/careers",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/contact",
       "destination": "/index.html"
     },
     {
@@ -56,14 +96,47 @@
     {
       "source": "/domains/:domain",
       "destination": "/index.html"
-    },
+    }
+  ],
+  "redirects": [
     {
-      "source": "/doccumentation",
-      "destination": "/index.html"
+      "source": "/products",
+      "destination": "/domains/software",
+      "permanent": true
     },
     {
       "source": "/documentation",
-      "destination": "/index.html"
+      "destination": "/doccumentation",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/admin",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/admin/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     }
   ]
 }

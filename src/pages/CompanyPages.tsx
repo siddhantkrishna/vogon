@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { VogonIcon } from "@/components/VogonIcon";
 import { capabilities, img, milestones, roles, team } from "@/content/site";
 import { PageHero } from "@/components/PageHero";
@@ -178,7 +179,7 @@ export function CompanyPage() {
                 ))}
               </ul>
             ) : (
-              <p className="body border-t border-line pt-6">Team profiles will be published here once verified.</p>
+              <div className="border-t border-line pt-6"><Link to="/founder" className="block group"><span className="block text-2xl font-medium tracking-tight group-hover:underline">Siddhant Krishna <span aria-hidden="true">↗</span></span><span className="eyebrow mt-3 block">Founder &amp; Chief Engineer</span><span className="body mt-5 block">Read the founder biography and explore VOGON's engineering direction.</span></Link></div>
             )}
           </div>
           <div className="col-span-4 md:col-span-5 md:col-start-8">

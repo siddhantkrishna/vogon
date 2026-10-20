@@ -74,13 +74,14 @@ function setMeta(attr: "name" | "property", key: string, content: string) {
   el.content = content;
 }
 
-export function useSeo({ title, description, path }: { title: string; description?: string; path: string }) {
+export function useSeo({ title, description, path, noindex = false }: { title: string; description?: string; path: string; noindex?: boolean }) {
   useEffect(() => {
     const full = title.includes("VOGON") ? title : `${title} — VOGON`;
     const desc = description ?? site.description;
     const url = `${site.domain}${path === "/" ? "" : path}`;
     document.title = full;
     setMeta("name", "description", desc);
+    setMeta("name", "robots", noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large");
     setMeta("property", "og:title", full);
     setMeta("property", "og:description", desc);
     setMeta("property", "og:url", url);
@@ -93,5 +94,5 @@ export function useSeo({ title, description, path }: { title: string; descriptio
       document.head.appendChild(link);
     }
     link.href = url;
-  }, [title, description, path]);
+  }, [title, description, path, noindex]);
 }

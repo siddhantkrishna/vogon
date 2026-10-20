@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://vogon.in/</loc></url>
-  <url><loc>https://vogon.in/products</loc></url>
+  <url><loc>https://vogon.in/domains/software</loc></url>
+  <url><loc>https://vogon.in/founder</loc></url>
+  <url><loc>https://vogon.in/domains/air</loc></url>
+  <url><loc>https://vogon.in/domains/land</loc></url>
+  <url><loc>https://vogon.in/domains/sea</loc></url>
   <url><loc>https://vogon.in/vortex</loc></url>
   <url><loc>https://vogon.in/pragya</loc></url>
   <url><loc>https://vogon.in/technologies</loc></url>
@@ -10,10 +14,9 @@
   <url><loc>https://vogon.in/company</loc></url>
   <url><loc>https://vogon.in/careers</loc></url>
   <url><loc>https://vogon.in/contact</loc></url>
-  <url><loc>https://vogon.in/privacy</loc></url>
-  <url><loc>https://vogon.in/terms</loc></url>
-  <url><loc>https://vogon.in/technologies/autonomous-systems</loc></url>
+      <url><loc>https://vogon.in/technologies/autonomous-systems</loc></url>
   <url><loc>https://vogon.in/technologies/aerospace-technologies</loc></url>
   <url><loc>https://vogon.in/technologies/artificial-intelligence</loc></url>
   <url><loc>https://vogon.in/technologies/advanced-robotics</loc></url>
+  <url><loc>https://vogon.in/doccumentation</loc></url>
 </urlset>

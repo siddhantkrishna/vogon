@@ -11,6 +11,7 @@ import { ScrollProgress } from "@/components/motion";
 import HomePage from "@/pages/HomePage";
 import VortexPage from "@/pages/VortexPage";
 import PragyaPage from "@/pages/PragyaPage";
+import FounderPage from "@/pages/FounderPage";
 import { TechnologiesPage, TechnologyDetailPage } from "@/pages/TechnologyPages";
 import { ResearchDetailPage, ResearchPage } from "@/pages/ResearchPages";
 import { CapabilitiesPage, CareersPage, CompanyPage } from "@/pages/CompanyPages";
@@ -69,6 +70,7 @@ function Shell() {
             <Route path="/products" element={<Navigate to="/domains/software" replace />} />
             <Route path="/vortex" element={<VortexPage />} />
             <Route path="/pragya" element={<PragyaPage />} />
+            <Route path="/founder" element={<FounderPage />} />
             <Route path="/doccumentation" element={<DocumentationPage />} />
             <Route path="/documentation" element={<Navigate to="/doccumentation" replace />} />
             <Route path="/domains/land" element={<LandFilm />} />

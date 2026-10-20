@@ -1,7 +1,7 @@
 import { AnimatedLink, useSeo } from "@/components/ui";
 
 export default function NotFound() {
-  useSeo({ title: "Page not found", path: "/404" });
+  useSeo({ title: "Page not found", path: "/404", noindex: true });
   return (
     <section className="flex min-h-svh items-end bg-ink pb-20 pt-40">
       <div className="shell">
