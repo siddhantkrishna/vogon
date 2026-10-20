@@ -5,14 +5,15 @@ import {AboutSection, CareersSection, FinalCta, ResearchSection, } from "@/secti
 
 
 const defenceCompanies = [
-  "ANDURIL",
-  "SHIELD AI",
-  "HELSING",
-  "SARONIC",
-  "SKYDIO",
-  "EPIRUS",
-  "CASTELION",
-  "MACH INDUSTRIES",
+  { name: "PALANTIR", url: "https://www.palantir.com" },
+  { name: "ANDURIL", url: "https://www.anduril.com" },
+  { name: "SHIELD AI", url: "https://shield.ai" },
+  { name: "HELSING", url: "https://helsing.ai" },
+  { name: "SARONIC", url: "https://www.saronic.com" },
+  { name: "SKYDIO", url: "https://www.skydio.com" },
+  { name: "EPIRUS", url: "https://www.epirusinc.com" },
+  { name: "CASTELION", url: "https://www.castelion.com" },
+  { name: "MACH INDUSTRIES", url: "https://www.machindustries.com" },
 ];
 
 function DefenceCompaniesMarquee() {
@@ -38,16 +39,20 @@ function DefenceCompaniesMarquee() {
             className="flex shrink-0 items-center gap-16 pr-16 md:gap-28 md:pr-28"
           >
             {defenceCompanies.map((company) => (
-              <span
-                key={company}
-                className="select-none whitespace-nowrap font-semibold tracking-[-0.045em] text-white/35 transition-colors duration-300 hover:text-white/75"
+              <a
+                key={company.name}
+                href={company.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit ${company.name} website`}
+                className="select-none whitespace-nowrap font-semibold tracking-[-0.045em] text-white/35 transition-colors duration-300 hover:text-white/75 focus-visible:text-white focus-visible:outline focus-visible:outline-1 focus-visible:outline-white"
                 style={{
                   fontFamily: "Inter Tight, Inter, sans-serif",
                   fontSize: "clamp(20px, 2.6vw, 34px)",
                 }}
               >
-                {company}
-              </span>
+                {company.name}
+              </a>
             ))}
           </div>
         ))}
