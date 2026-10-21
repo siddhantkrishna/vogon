@@ -304,8 +304,8 @@ export const projects: Project[] = [
     placeholder: true,
     summary:
       "A conceptual research direction exploring long-endurance autonomous flight at high altitude, combining efficient airframe design with onboard decision-making.",
-    image: img("hero"),
-    imageAlt: "Conceptual artwork of an unmarked aircraft above Earth's horizon",
+    image: "/images/pluto-research.png",
+    imageAlt: "Monochrome Project Pluto conceptual space artwork",
     sections: [
       { title: "Research question", text: "How far can onboard autonomy extend mission endurance when communication is intermittent?" },
       { title: "Areas of exploration", text: "High-aspect-ratio airframes, energy-aware path planning and fault-tolerant flight control." },
