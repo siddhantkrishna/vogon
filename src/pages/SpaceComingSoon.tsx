@@ -1,7 +1,6 @@
-import { useId, useRef } from "react";
+import { useId } from "react";
 import { Link } from "react-router-dom";
 import { VogonIcon } from "@/components/VogonIcon";
-import { gsap, ScrollTrigger, useIsoLayoutEffect, useReducedMotion } from "@/lib/motion";
 
 // Fixed positions keep the sky stable across renders and route transitions.
 const stars = Array.from({ length: 58 }, (_, index) => ({
@@ -12,69 +11,10 @@ const stars = Array.from({ length: 58 }, (_, index) => ({
 }));
 
 export default function SpaceComingSoon() {
-  const heroRef = useRef<HTMLElement>(null);
-  const reducedMotion = useReducedMotion();
   const id = useId().replace(/:/g, "");
 
-  useIsoLayoutEffect(() => {
-    const hero = heroRef.current;
-    if (!hero || reducedMotion) return;
-
-    const ctx = gsap.context(() => {
-      const select = gsap.utils.selector(hero);
-      const intro = gsap.timeline({ defaults: { ease: "power2.inOut" } });
-
-      gsap.set(select("[data-space-atmosphere], [data-space-stars], [data-space-copy], [data-space-back]"), { opacity: 0 });
-      gsap.set(select("[data-space-word]"), { yPercent: 115 });
-      gsap.set(select("[data-space-orbit]"), { strokeDashoffset: 1 });
-
-      intro
-        .to(select("[data-space-atmosphere]"), { opacity: 1, duration: 2.8 }, 0.25)
-        .to(select("[data-space-stars]"), { opacity: 1, duration: 2.4, stagger: 0.3 }, 0.9)
-        .to(select("[data-space-orbit]"), { strokeDashoffset: 0, duration: 3.4, ease: "power1.inOut" }, 1.3)
-        .to(select("[data-space-word]"), { yPercent: 0, duration: 1.6, stagger: 0.13, ease: "power4.out" }, 1.8)
-        .to(select("[data-space-copy]"), { opacity: 1, duration: 1.3, stagger: 0.25 }, 2.65)
-        .to(select("[data-space-back]"), { opacity: 1, duration: 1.1 }, 3.5);
-
-      // Nested layers separate ambient drift from scroll-driven transforms.
-      const ambient = gsap.timeline({ repeat: -1, yoyo: true, paused: true })
-        .to(select("[data-space-drift]"), { y: -9, x: 4, duration: 22, ease: "sine.inOut" }, 0)
-        .to(select("[data-space-near]"), { x: -5, y: 3, duration: 22, ease: "sine.inOut" }, 0);
-
-      gsap.to(select("[data-space-depth]"), {
-        yPercent: 12,
-        ease: "none",
-        scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 0.8 },
-      });
-      gsap.to(select("[data-space-stars-depth]"), {
-        yPercent: 5,
-        ease: "none",
-        scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: 0.8 },
-      });
-
-      // Pause perpetual work when the scene is offscreen or the tab is hidden.
-      let inView = true;
-      const syncPlayback = () => {
-        const active = inView && !document.hidden;
-        ambient.paused(!active);
-        intro.paused(!active);
-      };
-      ScrollTrigger.create({
-        trigger: hero,
-        start: "top bottom",
-        end: "bottom top",
-        onToggle: (self) => { inView = self.isActive; syncPlayback(); },
-      });
-      document.addEventListener("visibilitychange", syncPlayback);
-      syncPlayback();
-      return () => document.removeEventListener("visibilitychange", syncPlayback);
-    }, hero);
-
-    return () => ctx.revert();
-  }, [reducedMotion]);
-
   return (
-    <section ref={heroRef} className="vogon-space" aria-labelledby="space-title">
+    <section className="vogon-space" aria-labelledby="space-title">
       <div className="vogon-space-sky" aria-hidden="true">
         <div className="vogon-space-stars-depth" data-space-stars-depth>
           {[0, 1].map((layer) => (
