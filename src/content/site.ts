@@ -144,7 +144,7 @@ export const technologies: Technology[] = [
       { step: "02", title: "Simulate", text: "Exercise behaviour across thousands of synthetic scenarios." },
       { step: "03", title: "Field", text: "Validate on hardware in controlled, instrumented conditions." },
     ],
-    related: ["aether", "vector"],
+    related: ["pluto", "vector"],
   },
   {
     slug: "aerospace-technologies",
@@ -170,7 +170,7 @@ export const technologies: Technology[] = [
       { step: "02", title: "Prototype", text: "Rapid fabrication of sub-scale and component test articles." },
       { step: "03", title: "Iterate", text: "Close the loop between test data and design models." },
     ],
-    related: ["aether"],
+    related: ["pluto"],
   },
   {
     slug: "artificial-intelligence",
@@ -297,8 +297,8 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "aether",
-    name: "Project Aether",
+    slug: "pluto",
+    name: "Project Pluto",
     category: "Autonomous Flight Research",
     status: "Concept",
     placeholder: true,

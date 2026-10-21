@@ -82,6 +82,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/research/pluto",
+      "destination": "/research/pluto/index.html"
+    },
+    {
       "source": "/research/:slug",
       "destination": "/index.html"
     },
@@ -107,6 +111,11 @@
     {
       "source": "/documentation",
       "destination": "/doccumentation",
+      "permanent": true
+    },
+    {
+      "source": "/research/aether",
+      "destination": "/research/pluto",
       "permanent": true
     }
   ],
