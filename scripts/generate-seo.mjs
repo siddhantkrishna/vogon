@@ -76,7 +76,7 @@ function staticBody(route) {
   <div class="seo-seed-footer">VOGON / AUTONOMY · AEROSPACE · SOFTWARE</div></main>`;
 }
 const preloadStyle = `<style id="seo-seed-style">.seo-seed{background:#050505;color:#f5f5f2;min-height:100vh;padding:32px clamp(20px,4vw,64px);font-family:Inter,system-ui,sans-serif}.seo-seed-top,.seo-seed-footer{display:flex;justify-content:space-between;font:11px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#999}.seo-seed-top a{color:#fff;text-decoration:none;font-size:17px;font-weight:700}.seo-seed-content{max-width:970px;padding:clamp(80px,12vw,190px) 0}.seo-seed-kicker{font:11px monospace;letter-spacing:.13em;color:#aaa}.seo-seed h1{font:700 clamp(46px,7vw,112px)/.99 'Inter Tight',Inter,sans-serif;letter-spacing:-.06em;margin:24px 0 44px}.seo-seed-content>p:not(.seo-seed-kicker){max-width:760px;font:clamp(16px,1.8vw,22px)/1.65 Inter,system-ui,sans-serif;color:#bdbdbd;margin:0 0 22px}.seo-seed nav{display:flex;flex-wrap:wrap;gap:24px;margin-top:52px}.seo-seed nav a{font:13px monospace;border-bottom:1px solid #777;color:#fff;padding-bottom:12px;text-decoration:none}@media(max-width:600px){.seo-seed-top span{display:none}}</style>`;
-const fontHead = `<link rel="icon" type="image/png" href="/brand/vogon-wordmark.png" />
+const fontHead = `<link rel="icon" type="image/png" href="/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />`;
