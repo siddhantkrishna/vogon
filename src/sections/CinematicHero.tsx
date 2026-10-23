@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { img } from "@/content/site";
 
 export function CinematicHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoPlaying, setVideoPlaying] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
 
   useEffect(() => {
@@ -20,27 +18,18 @@ export function CinematicHero() {
       try {
         await video.play();
       } catch {
-        // The poster remains visible until playback is possible.
+        setVideoFailed(true);
       }
     };
 
-    const onPlaying = () => {
-      setVideoPlaying(true);
-      setVideoFailed(false);
-    };
-
-    const onPause = () => setVideoPlaying(false);
-    const onError = () => {
-      setVideoPlaying(false);
-      setVideoFailed(true);
-    };
+    const onPlaying = () => setVideoFailed(false);
+    const onError = () => setVideoFailed(true);
 
     const onVisibility = () => {
       if (!document.hidden) void playVideo();
     };
 
     video.addEventListener("playing", onPlaying);
-    video.addEventListener("pause", onPause);
     video.addEventListener("error", onError);
     document.addEventListener("visibilitychange", onVisibility);
 
@@ -48,7 +37,6 @@ export function CinematicHero() {
 
     return () => {
       video.removeEventListener("playing", onPlaying);
-      video.removeEventListener("pause", onPause);
       video.removeEventListener("error", onError);
       document.removeEventListener("visibilitychange", onVisibility);
     };
@@ -57,23 +45,15 @@ export function CinematicHero() {
   return (
     <section className="vogon-film-hero" aria-label="VOGON introduction">
       <div className="vogon-film-media">
-        <img
-          src={img("hero")}
-          alt=""
-          className="vogon-film-poster"
-          aria-hidden="true"
-        />
-
         <video
           ref={videoRef}
           src="/videos/hero.mp4"
-          className={`vogon-film-video ${videoPlaying ? "is-playing" : ""}`}
+          className="vogon-film-video"
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          poster={img("hero")}
           aria-hidden="true"
         />
       </div>

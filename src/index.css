@@ -1069,18 +1069,13 @@ img[loading="lazy"] {
   background: #050505;
 }
 
-.vogon-film-video,
-.vogon-film-poster {
+.vogon-film-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-.vogon-film-poster {
-  z-index: -1;
 }
 
 .vogon-film-video {
@@ -1234,8 +1229,7 @@ img[loading="lazy"] {
     justify-self: start;
   }
 
-  .vogon-film-video,
-  .vogon-film-poster {
+  .vogon-film-video {
     object-position: 60% center;
   }
 }
@@ -1565,13 +1559,8 @@ img[loading="lazy"] {
   z-index: 0 !important;
 }
 
-.vogon-film-poster {
-  z-index: 0 !important;
-}
-
 .vogon-film-video {
   z-index: 1 !important;
-  transition: opacity 700ms ease;
 }
 
 .vogon-film-shade {
@@ -1615,7 +1604,6 @@ img[loading="lazy"] {
   transform: none !important;
 }
 
-.vogon-film-poster,
 .vogon-film-video {
   position: absolute !important;
   inset: 0;
@@ -1626,20 +1614,11 @@ img[loading="lazy"] {
   object-position: center !important;
 }
 
-.vogon-film-poster {
-  z-index: 0 !important;
-}
-
 .vogon-film-video {
   z-index: 1 !important;
-  opacity: 0;
-  transition: opacity 650ms ease;
+  opacity: 1 !important;
   transform: none !important;
   pointer-events: none;
-}
-
-.vogon-film-video.is-playing {
-  opacity: 1 !important;
 }
 
 .vogon-film-shade {
@@ -1687,12 +1666,6 @@ img[loading="lazy"] {
   font: 11px "IBM Plex Mono", monospace;
   letter-spacing: .12em;
   cursor: pointer;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .vogon-film-video {
-    transition: none;
-  }
 }
 
 /* END VOGON VIDEO FIX */
