@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const dist = join(root, "dist");
 const sourceHtml = readFileSync(join(dist, "index.html"), "utf8");
-const domain = "https://vogon.in";
+const domain = "https://www.vogon.in";
 const mainImage = `${domain}/images/hero.jpg`;
 const assets = [...sourceHtml.matchAll(/<(?:script|link)\b[^>]*\/assets\/[^>]*>(?:<\/script>)?/g)].map(m => m[0]);
 if (!assets.some(s => s.includes('type="module"')) || !assets.some(s => s.includes('stylesheet'))) {

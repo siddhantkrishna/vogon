@@ -11,7 +11,7 @@ export const img = (name: string) => `/images/${name}.jpg`;
 
 export const site = {
   name: "VOGON",
-  domain: "https://vogon.in",
+  domain: "https://www.vogon.in",
   tagline: "Defence Technology. Aerospace. Autonomous Systems.",
   description:
     "VOGON is an Indian technology startup exploring autonomous systems, aerospace engineering, artificial intelligence, and advanced robotics.",
