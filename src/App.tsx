@@ -11,6 +11,7 @@ import { ScrollProgress } from "@/components/motion";
 import HomePage from "@/pages/HomePage";
 import VortexPage from "@/pages/VortexPage";
 import PragyaPage from "@/pages/PragyaPage";
+import PlutoPage from "@/pages/PlutoPage";
 import FounderPage from "@/pages/FounderPage";
 import { TechnologiesPage, TechnologyDetailPage } from "@/pages/TechnologyPages";
 import { ResearchDetailPage, ResearchPage } from "@/pages/ResearchPages";
@@ -79,6 +80,7 @@ function Shell() {
             <Route path="/technologies/:slug" element={<TechnologyDetailPage />} />
             <Route path="/capabilities" element={<CapabilitiesPage />} />
             <Route path="/research" element={<ResearchPage />} />
+            <Route path="/research/pluto" element={<PlutoPage />} />
             <Route path="/research/:slug" element={<ResearchDetailPage />} />
             <Route path="/company" element={<CompanyPage />} />
             <Route path="/careers" element={<CareersPage />} />

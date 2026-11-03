@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">PLUTO data architecture illustration</title>
+<desc id="desc">A dark technical network diagram connecting institutional sources, a governed catalog and a planned analysis layer.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#121415"/><stop offset="0.65" stop-color="#090a0b"/><stop offset="1" stop-color="#030404"/></linearGradient>
+<pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" fill="none" stroke="#fff" stroke-opacity=".055" stroke-width="1"/></pattern>
+<linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e5e5e5" stop-opacity=".12"/><stop offset=".5" stop-color="#d0d2d2" stop-opacity=".55"/><stop offset="1" stop-color="#e5e5e5" stop-opacity=".12"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#grid)"/>
+<g stroke="#fff" stroke-opacity=".10" fill="none"><path d="M0 165H1600M0 740H1600M130 0V900M1450 0V900"/><path d="M780 0V900" stroke-dasharray="3 12"/><circle cx="785" cy="443" r="327" stroke-dasharray="2 16"/><circle cx="785" cy="443" r="243" stroke-dasharray="2 12"/></g>
+<g fill="none" stroke="url(#line)" stroke-width="2"><path d="M258 267H530L685 394"/><path d="M258 456H578L685 435"/><path d="M258 645H520L685 477"/><path d="M895 435H1080V265H1270"/><path d="M895 455H1080V450H1270"/><path d="M895 475H1080V635H1270"/></g>
+<g stroke="#c4c8c6" stroke-opacity=".38" fill="#151819">
+<rect x="170" y="220" width="310" height="96" rx="1"/><rect x="170" y="409" width="310" height="96" rx="1"/><rect x="170" y="598" width="310" height="96" rx="1"/>
+<rect x="645" y="349" width="280" height="188" rx="1" stroke-opacity=".70"/>
+<rect x="1192" y="218" width="240" height="96" rx="1"/><rect x="1192" y="403" width="240" height="96" rx="1"/><rect x="1192" y="588" width="240" height="96" rx="1"/>
+</g>
+<g font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="4" fill="#d8dddd">
+<text x="192" y="252">INSTITUTIONS</text><text x="192" y="441">WORKSPACES</text><text x="192" y="630">CATALOG RECORDS</text>
+<text x="668" y="395" font-size="16" letter-spacing="5" font-weight="bold">PLUTO</text>
+<text x="668" y="428" font-size="11" letter-spacing="2.4" fill="#aab0ae">GOVERNANCE CORE</text>
+<text x="668" y="463" font-size="11" letter-spacing="2.1" fill="#aab0ae">ACCESS + METADATA</text>
+<text x="1215" y="251" fill="#b5bab7">INGESTION</text>
+<text x="1215" y="436" fill="#b5bab7">SEARCH</text>
+<text x="1215" y="621" fill="#b5bab7">AI INSIGHTS</text>
+</g>
+<g font-family="Arial,Helvetica,sans-serif" fill="#777f7b" font-size="10" letter-spacing="2">
+<text x="192" y="283">MULTI-TENANT</text><text x="192" y="472">ACCESS SCOPED</text><text x="192" y="661">STRUCTURED METADATA</text>
+<text x="1215" y="282">IN DEVELOPMENT</text><text x="1215" y="467">IN DEVELOPMENT</text><text x="1215" y="652">PLANNED</text>
+</g>
+<g fill="#f0f3f0"><circle cx="530" cy="267" r="3"/><circle cx="578" cy="456" r="3"/><circle cx="520" cy="645" r="3"/><circle cx="1080" cy="265" r="3"/><circle cx="1080" cy="450" r="3"/><circle cx="1080" cy="635" r="3"/></g>
+<circle cx="785" cy="443" r="7" fill="#e8622c"/><circle cx="785" cy="443" r="24" fill="none" stroke="#e8622c" stroke-opacity=".5"/>
+<g font-family="monospace" font-size="12" letter-spacing="3" fill="#8b9390"><text x="171" y="193">01 / SOURCES</text><text x="648" y="328">02 / GOVERNED FOUNDATION</text><text x="1192" y="191">03 / FUTURE LAYERS</text><text x="171" y="783">SYSTEM ARCHITECTURE / ILLUSTRATIVE ONLY</text><text x="1170" y="783">VOGON / PLUTO 003</text></g>
+</svg>

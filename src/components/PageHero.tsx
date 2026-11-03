@@ -10,6 +10,7 @@ export function PageHero({
   intro,
   image,
   imageAlt = "",
+  imageLabel = "Conceptual imagery",
   children,
   compact = false,
 }: {
@@ -19,6 +20,7 @@ export function PageHero({
   intro?: ReactNode;
   image?: string;
   imageAlt?: string;
+  imageLabel?: string;
   children?: ReactNode;
   compact?: boolean;
 }) {
@@ -55,7 +57,7 @@ export function PageHero({
             {children && <div className="col-span-4 md:col-span-5 md:col-start-8 md:justify-self-end">{children}</div>}
           </div>
         )}
-        {image && <ConceptTag className="mt-10 block">Conceptual imagery</ConceptTag>}
+        {image && <ConceptTag className="mt-10 block">{imageLabel}</ConceptTag>}
       </div>
     </section>
   );

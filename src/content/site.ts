@@ -35,6 +35,17 @@ export const nav = [
   { label: "Careers", to: "/careers" },
 ];
 
+/* Product details must reflect the implemented codebase, not planned functionality. */
+export const pluto = {
+  name: "PLUTO",
+  path: "/research/pluto",
+  appUrl: "https://pluto.vogon.in",
+  designation: "Data Intelligence Platform by VOGON",
+  image: "/images/pluto-data-network.svg",
+  summary:
+    "A multi-institution data governance and intelligence platform bringing workspaces, access control and a governed data catalog together. Ingestion, indexing and AI analysis are under development.",
+};
+
 /* Public product information only. The VORTEX application remains private. */
 export const pragya = {
   index: "002",
@@ -144,7 +155,7 @@ export const technologies: Technology[] = [
       { step: "02", title: "Simulate", text: "Exercise behaviour across thousands of synthetic scenarios." },
       { step: "03", title: "Field", text: "Validate on hardware in controlled, instrumented conditions." },
     ],
-    related: ["pluto", "vector"],
+    related: ["vector"],
   },
   {
     slug: "aerospace-technologies",
@@ -170,7 +181,7 @@ export const technologies: Technology[] = [
       { step: "02", title: "Prototype", text: "Rapid fabrication of sub-scale and component test articles." },
       { step: "03", title: "Iterate", text: "Close the loop between test data and design models." },
     ],
-    related: ["pluto"],
+    related: [],
   },
   {
     slug: "artificial-intelligence",
@@ -196,7 +207,7 @@ export const technologies: Technology[] = [
       { step: "02", title: "Evaluate", text: "Measure against adversarial and out-of-distribution sets." },
       { step: "03", title: "Deploy", text: "Optimise for target hardware and monitor in operation." },
     ],
-    related: ["vector"],
+    related: ["vector", "pluto"],
   },
   {
     slug: "advanced-robotics",
@@ -298,20 +309,19 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "pluto",
-    name: "Project Pluto",
-    category: "Autonomous Flight Research",
-    status: "Concept",
-    placeholder: true,
-    summary:
-      "A conceptual research direction exploring long-endurance autonomous flight at high altitude, combining efficient airframe design with onboard decision-making.",
-    image: "/images/pluto-research.png",
-    imageAlt: "Monochrome Project Pluto conceptual space artwork",
+    name: "PLUTO",
+    category: "Data Intelligence Software",
+    status: "In development",
+    placeholder: false,
+    summary: pluto.summary,
+    image: pluto.image,
+    imageAlt: "Illustrative technical network of governed data sources, workspaces and connections",
     sections: [
-      { title: "Research question", text: "How far can onboard autonomy extend mission endurance when communication is intermittent?" },
-      { title: "Areas of exploration", text: "High-aspect-ratio airframes, energy-aware path planning and fault-tolerant flight control." },
-      { title: "Intended method", text: "Simulation-first development, followed by sub-scale instrumented flight experiments." },
+      { title: "What PLUTO is", text: "A multi-institution platform for organizing information, permissions and catalog records in a governed environment." },
+      { title: "Implemented foundation", text: "Account authentication, institutions, workspaces, memberships, invitations, access controls and catalog metadata." },
+      { title: "Under development", text: "Durable ingestion, file processing, indexing, search, source connectors and AI-driven relationship discovery." },
     ],
-    technologies: ["autonomous-systems", "aerospace-technologies"],
+    technologies: ["artificial-intelligence"],
   },
   {
     slug: "vector",

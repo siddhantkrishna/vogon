@@ -12,10 +12,10 @@ import { cn } from "@/utils/cn";
 function PlaceholderNotice() {
   return (
     <div role="note" className="border border-line p-5 md:p-6">
-      <p className="eyebrow mb-2 text-paper">Placeholder content</p>
+      <p className="eyebrow mb-2 text-paper">Research index / Content status</p>
       <p className="body text-[14px]">
-        The projects below are clearly identified sample entries used to demonstrate structure. They are not real VOGON
-        programmes, achievements or products, and will be replaced with verified information.
+        This index includes real software in development as well as conceptual research studies.
+        Concept-only entries are marked as samples; they are not operational VOGON products.
       </p>
     </div>
   );
@@ -24,7 +24,7 @@ function PlaceholderNotice() {
 export function ResearchPage() {
   useSeo({
     title: "Research & Development",
-    description: "An index of VOGON research directions across autonomous flight, perception and robotics.",
+    description: "VOGON software and research: PLUTO data intelligence, perception and robotics concepts.",
     path: "/research",
   });
   const [open, setOpen] = useState<string | null>(projects[0].slug);
@@ -81,7 +81,7 @@ export function ResearchPage() {
                     <div className="grid-12 gap-y-8">
                       <div className="col-span-4 md:col-span-7 md:col-start-2">
                         <img src={p.image} alt={p.imageAlt} loading="lazy" className="aspect-[16/9] w-full object-cover" />
-                        <ConceptTag className="mt-3 block">Sample project — conceptual imagery</ConceptTag>
+                        <ConceptTag className="mt-3 block">{p.placeholder ? "Sample project — conceptual imagery" : "Illustrative system diagram — software in development"}</ConceptTag>
                       </div>
                       <div className="col-span-4 flex flex-col justify-between gap-8 md:col-span-4">
                         <div>
@@ -89,7 +89,7 @@ export function ResearchPage() {
                           <p className="body-lg">{p.summary}</p>
                         </div>
                         <AnimatedLink to={`/research/${p.slug}`} arrow="→">
-                          Read project story
+                          {p.slug === "pluto" ? "Explore PLUTO software" : "Read project story"}
                         </AnimatedLink>
                       </div>
                     </div>
