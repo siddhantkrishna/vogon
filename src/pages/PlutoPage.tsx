@@ -66,7 +66,7 @@ export default function PlutoPage() {
         eyebrow="VOGON / SOFTWARE / DATA INTELLIGENCE"
         index="003"
         lines={["PROJECT PLUTO."]}
-        intro="Connect information. Establish context. Build intelligence. PLUTO is a governed foundation for institutions working with complex data."
+        intro="Available now: institutional workspaces, access control and catalog metadata. Ingestion, search and AI-powered relationship analysis are still under development."
         image={pluto.image}
         imageAlt="Illustrative system diagram showing institutional data connected through a governance and catalog layer"
         imageLabel="Illustrative architecture / Not a live application screenshot"
@@ -93,7 +93,7 @@ export default function PlutoPage() {
           {[
             ["System", "Data intelligence"],
             ["Architecture", "Next.js / PostgreSQL"],
-            ["Current stage", "Active development"],
+            ["Current stage", "Governance foundation built"],
             ["Access", "Authenticated platform"],
           ].map(([name, value]) => (
             <div key={name}><dt className="eyebrow mb-3">{name}</dt><dd className="text-[15px] text-paper">{value}</dd></div>

@@ -118,7 +118,7 @@ function PlutoProjectCard() {
         </svg>
         <div className="vortex-project-art-meta eyebrow">
           <span>VOGON / SOFTWARE / PLUTO</span>
-          <span>DATA INTELLIGENCE / IN DEVELOPMENT</span>
+          <span>GOVERNED WORKSPACES / IN DEVELOPMENT</span>
         </div>
         <span className="vortex-project-word" aria-hidden="true">PLUTO</span>
         <span className="vortex-project-art-caption eyebrow">DATA INTELLIGENCE PLATFORM BY VOGON</span>
@@ -129,8 +129,8 @@ function PlutoProjectCard() {
         <div className="vortex-project-description">
           <div>
             <h3 className="display-md">PLUTO</h3>
-            <p className="body mt-4 max-w-xl">A connected data infrastructure for institutions — bringing documents, datasets and media into a searchable, governed environment.</p>
-            <p className="body mt-3 max-w-xl text-paper/80">Data ingestion and indexing are in development. AI-powered relationship discovery and analysis are planned.</p>
+            <p className="body mt-4 max-w-xl">Implemented foundation: institutional accounts, permissioned workspaces and a structured metadata catalog.</p>
+            <p className="body mt-3 max-w-xl text-paper/80">Not yet available: file ingestion, document indexing, unified search and AI-powered relationship or bottleneck analysis.</p>
           </div>
           <span className="label flex shrink-0 items-center gap-5">Explore system <span className="arrow arrow-x" aria-hidden="true"><VogonIcon name="arrow-right" /></span></span>
         </div>

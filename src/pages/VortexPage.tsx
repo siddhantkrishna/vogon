@@ -16,8 +16,8 @@ function OpenVortex() {
 
 export default function VortexPage() {
   useSeo({
-    title: "VORTEX — Industrial Operating System by VOGON",
-    description: "VORTEX — Industrial Operating System by VOGON. Industrial ERP features are under development. Available today: a private synthetic simulation laboratory.",
+    title: "VORTEX — Synthetic Intelligence Fusion by VOGON",
+    description: "VORTEX is VOGON’s defence-oriented intelligence-fusion research platform. Available today: private synthetic scenarios, evidence review and deterministic replay. No live surveillance or operational deployment.",
     path: vortex.path,
   });
   return (
@@ -27,16 +27,16 @@ export default function VortexPage() {
         <div className="shell vortex-hero-content">
           <div className="vortex-hero-meta eyebrow">
             <Link to="/domains/software" className="u-link">Software / Project {vortex.index}</Link>
-            <span className="vortex-private">Private platform / In development</span>
+            <span className="vortex-private">Private research / Synthetic only</span>
           </div>
           <MaskedTextReveal as="h1" id="vortex-title" lines={[vortex.name]} trigger="load" className="vortex-title" />
           <Reveal className="vortex-hero-copy">
             <div>
               <p className="eyebrow mb-7 text-paper">{vortex.designation}</p>
-              <h2>Industry.<br />In perspective.</h2>
+              <h2>Signals.<br />In context.</h2>
             </div>
             <div className="vortex-hero-intro">
-              <p className="body-lg">One vision for the industrial enterprise. Industrial ERP features are under development; the current application is a simulation laboratory.</p>
+              <p className="body-lg">A research environment for exploring synthetic sensor signals, evidence-linked incidents and repeatable investigations. Not a live intelligence or surveillance system.</p>
               <div className="mt-7"><OpenVortex /></div>
               <p className="eyebrow mt-4">Current simulation / Private sign-in</p>
             </div>
@@ -52,7 +52,7 @@ export default function VortexPage() {
         <div className="grid-12 gap-y-10">
           <SectionEyebrow index="01" className="col-span-4 md:col-span-3">The direction</SectionEyebrow>
           <div className="col-span-4 md:col-span-9">
-            <MaskedTextReveal id="vortex-overview-heading" lines={["A connected vision", "for industry."]} className="display-lg" />
+            <MaskedTextReveal id="vortex-overview-heading" lines={["Evidence connected.", "Decisions examined."]} className="display-lg" />
             <Reveal className="grid gap-8 mt-10 md:mt-14 lg:grid-cols-2 lg:gap-16">
               <p className="body-lg">{vortex.summary}</p>
               <p className="body">{vortex.overview}</p>
@@ -61,7 +61,7 @@ export default function VortexPage() {
         </div>
         <DrawRule className="mt-16 md:mt-24" />
         <dl className="vortex-specs">
-          {[["Programme", "Project 001"], ["Industrial ERP", "Under development"], ["Available today", "Simulation laboratory"], ["Access", "Private / Authenticated"]].map(([label, value]) => (
+          {[["Programme", "VORTEX / 001"], ["Focus", "Intelligence fusion research"], ["Available today", "Synthetic simulation laboratory"], ["Access", "Private / Authenticated"]].map(([label, value]) => (
             <div key={label}><dt className="eyebrow">{label}</dt><dd>{value}</dd></div>
           ))}
         </dl>
@@ -72,9 +72,9 @@ export default function VortexPage() {
           <div className="col-span-4 md:col-span-4">
             <div className="md:sticky md:top-32">
               <SectionEyebrow index="02" className="mb-10">Product vision</SectionEyebrow>
-              <MaskedTextReveal id="vortex-vision-heading" lines={["Across", "the enterprise."]} className="display-lg" />
-              <p className="eyebrow mt-8 text-paper">Industrial ERP / Under development</p>
-              <p className="body mt-5 max-w-xs">These seven areas describe the intended product direction. The features below are under development and are not available in the current application.</p>
+              <MaskedTextReveal id="vortex-vision-heading" lines={["Towards secure", "mission software."]} className="display-lg" />
+              <p className="eyebrow mt-8 text-paper">Future research directions / Not deployed</p>
+              <p className="body mt-5 max-w-xs">These seven areas are future engineering directions, not implemented operational capabilities. The current application remains synthetic and private.</p>
             </div>
           </div>
           <ol className="col-span-4 md:col-span-7 md:col-start-6">
@@ -100,7 +100,7 @@ export default function VortexPage() {
             <div className="md:sticky md:top-32">
               <SectionEyebrow index="03" className="mb-10">Available today / Simulation</SectionEyebrow>
               <MaskedTextReveal id="vortex-capabilities-heading" lines={["Follow", "the signal."]} className="display-lg" />
-              <p className="body mt-8 max-w-xs">The existing synthetic intelligence-fusion laboratory. These capabilities operate on fictional scenarios and synthetic data only; they are not live industrial ERP functions.</p>
+              <p className="body mt-8 max-w-xs">The existing synthetic intelligence-fusion laboratory. These capabilities operate on fictional scenarios and synthetic data only; they are not live surveillance or fielded defence capabilities.</p>
             </div>
           </div>
           <ol className="col-span-4 md:col-span-7 md:col-start-6">
@@ -148,10 +148,10 @@ export default function VortexPage() {
 
       <section className="vortex-section shell" aria-labelledby="vortex-access-heading">
         <SectionEyebrow index="001" className="mb-10">VOGON / VORTEX</SectionEyebrow>
-        <MaskedTextReveal id="vortex-access-heading" lines={["The industrial vision.", "The research today."]} className="display-xl" />
+        <MaskedTextReveal id="vortex-access-heading" lines={["Intelligence examined.", "Evidence preserved."]} className="display-xl" />
         <DrawRule className="mt-14 md:mt-20" />
         <div className="vortex-access-row">
-          <p className="body max-w-md">Open the current simulation laboratory with an authorised account. Industrial ERP features remain under development and are not available through this sign-in.</p>
+          <p className="body max-w-md">Open the private synthetic simulation laboratory with an authorised account. Live feeds, real-world tracking and operational deployment are not supported.</p>
           <OpenVortex />
         </div>
         <div className="mt-12"><AnimatedLink to="/domains/software" arrow="→">Back to Software</AnimatedLink></div>

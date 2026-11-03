@@ -43,7 +43,7 @@ export const pluto = {
   designation: "Data Intelligence Platform by VOGON",
   image: "/images/pluto-data-network.svg",
   summary:
-    "A multi-institution data governance and intelligence platform bringing workspaces, access control and a governed data catalog together. Ingestion, indexing and AI analysis are under development.",
+    "PLUTO currently provides authenticated institutional workspaces, scoped access controls and a metadata catalog. File ingestion, indexing, unified search and AI-powered relationship analysis are not yet available.",
 };
 
 /* Public product information only. The VORTEX application remains private. */
@@ -59,22 +59,22 @@ export const pragya = {
 export const vortex = {
   index: "001",
   name: "VORTEX",
-  designation: "Industrial Operating System by VOGON",
-  category: "Industrial Operating System",
+  designation: "Synthetic Intelligence Fusion by VOGON",
+  category: "Defence Intelligence Research",
   path: "/vortex",
   loginUrl: "https://vortex-beryl-psi.vercel.app/login",
   summary:
-    "VOGON’s vision for connecting production, machinery, inventory, workforce, finance, energy and industrial intelligence in one operating environment.",
+    "VORTEX is VOGON's defence-oriented intelligence-fusion research platform. Its current application is a private laboratory for fictional scenarios, synthetic telemetry, evidence-linked incidents and repeatable analysis.",
   overview:
-    "The industrial ERP features are under development. Available today is a private simulation laboratory for synthetic scenarios, evidence-linked incidents, deterministic replay and research exports. Industrial ERP modules are not yet available.",
+    "Available today: synthetic scenarios with a shared simulation clock, evidence inspection, deterministic replay, annotations and research exports. VORTEX is not a deployed defence system and does not process live surveillance feeds or real-world personal-location data.",
   vision: [
-    { index: "01", title: "Production", text: "Planned workflows for production planning, work orders and visibility into progress on the factory floor." },
-    { index: "02", title: "Machinery", text: "Planned equipment records, maintenance workflows and insight into machine availability." },
-    { index: "03", title: "Inventory", text: "Planned visibility into materials, stock movements and the flow of inventory through production." },
-    { index: "04", title: "Workforce", text: "Planned coordination of shifts, skills and workforce allocation across industrial operations." },
-    { index: "05", title: "Finance", text: "Planned connections between operational activity, costs and financial visibility." },
-    { index: "06", title: "Energy", text: "Planned visibility into energy consumption and its relationship to industrial performance." },
-    { index: "07", title: "Industrial intelligence", text: "Planned analysis across operating data to help teams understand patterns and make informed decisions." },
+    { index: "01", title: "Interoperable sources", text: "Explore future integration of authorised data sources with clear provenance and source-level permissions." },
+    { index: "02", title: "Unified context", text: "Investigate how time, assets, observations and incidents could be represented within a governed information model." },
+    { index: "03", title: "Evidence integrity", text: "Research traceable records, confidence indicators and independent review of analytical conclusions." },
+    { index: "04", title: "Signal correlation", text: "Study ways to reconcile missing, delayed or contradictory observations using approved test datasets." },
+    { index: "05", title: "Incident reconstruction", text: "Explore review workflows that connect timelines, source evidence, annotations and operator assessment." },
+    { index: "06", title: "Human decision support", text: "Research explainable insights and scenario comparisons, subject to authorised human oversight." },
+    { index: "07", title: "Secure collaboration", text: "Design controlled access, auditability and deployment boundaries for future mission-oriented software." },
   ],
   capabilities: [
     {
