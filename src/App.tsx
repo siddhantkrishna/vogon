@@ -70,7 +70,8 @@ function Shell() {
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<Navigate to="/domains/software" replace />} />
             <Route path="/vortex" element={<VortexPage />} />
-            <Route path="/pragya" element={<PragyaPage />} />
+            <Route path="/proton" element={<PragyaPage />} />
+            <Route path="/pragya" element={<Navigate to="/proton" replace />} />
             <Route path="/founder" element={<FounderPage />} />
             <Route path="/doccumentation" element={<DocumentationPage />} />
             <Route path="/documentation" element={<Navigate to="/doccumentation" replace />} />
