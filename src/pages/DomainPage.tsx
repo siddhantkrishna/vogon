@@ -146,7 +146,7 @@ export default function DomainPage() {
     air: { title: "Air Systems Research", description: "VOGON explores aerial autonomy, sensing and flight control." },
     land: { title: "Land Robotics & Intelligent Systems", description: "VOGON explores robotics, machine perception and intelligent terrestrial systems." },
     sea: { title: "Maritime Autonomous Systems", description: "VOGON explores maritime sensing, autonomy and engineering." },
-    software: { title: "VOGON Software — VORTEX, PLUTO & PRAGYA", description: "Explore VOGON software: VORTEX, PLUTO data intelligence, and PRAGYA scientific AI." },
+    software: { title: "VOGON Software — VORTEX, PLUTO & PROTON", description: "Explore VOGON software: VORTEX, PLUTO data intelligence, and PROTON scientific AI." },
   };
   useSeo({ title: seo[domain || ""]?.title || "Domain not found", description: seo[domain || ""]?.description, path: domain ? `/domains/${domain}` : "/domains" });
 
@@ -190,7 +190,7 @@ export default function DomainPage() {
             <h2 id="software-project-heading" className="eyebrow">
               VOGON / SOFTWARE SYSTEMS
             </h2>
-            <span className="eyebrow">003 SYSTEMS / VORTEX + PLUTO + PRAGYA</span>
+            <span className="eyebrow">003 SYSTEMS / VORTEX + PLUTO + PROTON</span>
           </div>
           <VortexProjectCard />
           <Reveal><PlutoProjectCard /></Reveal>
