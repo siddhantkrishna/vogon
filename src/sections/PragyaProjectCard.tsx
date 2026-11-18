@@ -5,11 +5,11 @@ import { pragya } from "@/content/site";
 
 export function PragyaProjectCard() {
   return (
-    <Link to={pragya.path} className="pragya-project-card group" aria-label="Explore PRAGYA — Scientific Reasoning by VOGON, Software 002">
+    <Link to={pragya.path} className="pragya-project-card group" aria-label="Explore PROTON — Scientific Reasoning by VOGON, Software 002">
       <div className="pragya-project-art">
         <PragyaField />
         <div className="pragya-project-meta eyebrow"><span>VOGON / SOFTWARE {pragya.index}</span><span>PRIVATE ALPHA / SCIENTIFIC INTELLIGENCE</span></div>
-        <span className="pragya-project-word" aria-hidden="true">PRAGYA</span>
+        <span className="pragya-project-word" aria-hidden="true">PROTON</span>
         <div className="pragya-project-bottom eyebrow"><span>AN INSTRUMENT FOR THINKING</span><span>FIG. 002 / COMPUTATIONAL FIELD</span></div>
       </div>
       <div className="pragya-project-details">
