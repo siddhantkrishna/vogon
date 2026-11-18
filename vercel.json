@@ -18,8 +18,8 @@
       "destination": "/vortex/index.html"
     },
     {
-      "source": "/pragya",
-      "destination": "/pragya/index.html"
+      "source": "/proton",
+      "destination": "/proton/index.html"
     },
     {
       "source": "/technologies",
@@ -116,6 +116,11 @@
     {
       "source": "/research/aether",
       "destination": "/research/pluto",
+      "permanent": true
+    },
+    {
+      "source": "/pragya",
+      "destination": "/proton",
       "permanent": true
     }
   ],
