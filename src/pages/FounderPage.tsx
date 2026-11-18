@@ -13,10 +13,10 @@ const projects = [
   },
   {
     number: "002",
-    title: "PRAGYA",
+    title: "PROTON",
     label: "Scientific AI / Numerical tools",
     description: "A scientific reasoning workspace combining AI-assisted analysis, verified numerical calculations, plots and exploratory simulation.",
-    to: "/pragya",
+    to: "/proton",
   },
 ];
 
@@ -94,7 +94,7 @@ export default function FounderPage() {
             <Reveal className="founder-bio-grid">
               <p className="founder-lead">Siddhant Krishna is the founder and chief engineer of VOGON, an India-based technology initiative exploring aerospace, autonomous systems, artificial intelligence and advanced engineering software.</p>
               <div className="founder-bio-side">
-                <p>His work brings together an interest in physics, astronomy and rocket systems with practical software development and scientific computing. At VOGON, he is developing early-stage concepts and research tools, including VORTEX and PRAGYA.</p>
+                <p>His work brings together an interest in physics, astronomy and rocket systems with practical software development and scientific computing. At VOGON, he is developing early-stage concepts and research tools, including VORTEX and PROTON.</p>
                 <p>He also founded Spark Labs, an initiative focused on hands-on AI education, and has worked on technology projects spanning automation, software products and digital experiences.</p>
                 <p>His approach is grounded in first principles: understand the problem, build a testable system, measure what works and improve it.</p>
                 <a className="founder-external" href="https://www.siddhantkrishna.com/" target="_blank" rel="noopener noreferrer">EXPLORE PERSONAL WEBSITE <VogonIcon name="arrow-up-right" /></a>
